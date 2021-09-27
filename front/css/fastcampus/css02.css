@@ -1,0 +1,92 @@
+/* div{ padding : 12px 24px;
+     border-top : 1px solid black;
+     border-bottom : 1px solid black;
+;}
+
+.selected { 
+    border-top : 3px solid red;
+    border-bottom :3px solid red;
+    color : white;
+    background-color: green;} */
+    /* div{ padding : 12px 24px;
+        border-top : 1px solid black;
+
+   ;}
+   
+   .selected { 
+       border-top : 0;
+    
+       color : white;
+       background-color: green;}
+       .selected + div { border-top:0 ;} */
+
+ /* section * { 
+    display: inline-block ;
+    background-color: coral;
+    padding: 20px;
+} */
+
+/* .blue { color : blue;}
+.underline { text-decoration: underline;}
+.underline:not(.blue) { color:  red;}
+.underline:not(.blue):not(li) { color :inherit} */
+
+/* ul { padding : 0;}
+
+ul li {
+    list-style: none;
+    padding : 8px 16px;
+    border-top: 1px solid lightgray;
+}
+
+ul li:first-child { border-top: 2px solid black;}
+ul li:last-child { border-bottom: 2px solid black;}
+ul li:nth-child(3) { color: red;}
+ul li:nth-child(even) { background-color: lightgray;}
+ul li:nth-child(odd) { background-color: grey;}
+ul li:nth-child(3N+1) { text-decoration: underline;} */
+
+.blue-button { 
+    font-size : 1em;
+    padding : 16px 24px;
+    color:  white;
+    background-color: dodgerblue;
+    border : 0;
+    cursor : pointer;
+    border-radius: 4px;
+}
+.blue-button:hover{
+    background-color: darkblue;
+}
+
+
+div {
+    position: relative; 
+    display:inline-block;
+    color: white; 
+    background-color: tomato;
+    height: 60px;
+    line-height: 60px;
+    padding : 0 24px;
+    cursor: pointer;
+}
+
+div ul{
+    display: none;
+    position: absolute;
+    width: 100px;
+    left:12px; top:56px; margin:0; padding:0;
+}
+div:hover ul{display: block;}
+
+div ul li{
+    background-color: #444;
+    text-align: center; line-height: normal; 
+}
+div ul li:hover{ background-color: lightgray;}
+
+
+
+
+
+

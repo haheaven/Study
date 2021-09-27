@@ -1,0 +1,36 @@
+/* 머리말 */
+h1{
+    text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.travle{
+    background-color: beige;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    padding:50px;
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* 도시명 */
+.travle .city{
+    text-align: center;
+}
+.travle .picture{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/* 간단한 설명 */
+.travle .desc{
+    text-align: center;
+}
+
+/* 꼬라말 */
+.footer{
+    text-align: center;
+}

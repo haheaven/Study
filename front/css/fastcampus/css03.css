@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+/* span{
+    font-family:'Nanum Gothic' ;
+    font-size: 24px;
+} */
+ /* span {
+    font-family:'Nanum Gothic' ;
+    font-size: 1.5em; */
+
+
+span {
+    font-family:'Nanum Gothic' ;
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+}
