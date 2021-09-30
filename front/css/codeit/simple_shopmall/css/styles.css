@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  font-family: "Helvetica";
+  color: #595959;
+}
+
+body {
+  margin: 0;
+  min-width: 992px;
+  font-family: "Helvetica";
+}
+
+/* navbar */
+.navbar{
+  height: 60px;
+  padding-left:30px;
+  padding-right: 30px;
+}
+.navbar .logo{
+  line-height: 60px;
+}
+.logo img{
+  vertical-align: middle;
+  height: 20px;
+}
+.menu {
+  float: right;
+  list-style: none;
+  margin:0;
+  padding: 0;
+
+}
+.menu li{
+  float: left;
+  margin-left: 30px;
+  line-height: 60px;
+}
+.menu a{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* hero header */
+
+/* products */
+.products{
+  width: 735px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.products h3{
+  margin-top:60px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.product{
+  display: block;
+  width: 225px;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 80px;
+}
+.name{
+ margin-top: 20px;
+ margin-bottom: 4px; 
+ font-size: 16px;
+}
+.price{
+  margin-top: 4px;
+}
+.clearfix{
+  clear:both;
+}
+
+/* footer */
+.footer{
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 80px;
+}
+.footer a{
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+.footer img{
+  height : 20px;
+}
