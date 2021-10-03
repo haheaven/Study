@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보입력 폼</title>
+    <style>
+        .personal_info {
+            width: 700px;
+            height: 500px;
+            padding: 10px;
+            background-color: rgb(230, 244, 248);
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .personal_info h3{
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        .personal_info form{
+            margin: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 500px;
+            display: block;
+          
+        }
+        .personal_info table {
+            width: 500px;
+            border-collapse: collapse;  
+        }
+        .personal_info td {
+            border:1px solid black;
+            height: 40px;
+        }
+        .personal_info thead td {
+            border-bottom: none;
+            height: 25px;
+            color: white;
+            text-align: center;
+            background-color: blue;
+        }
+
+        .personal_info tbody {      
+            display: block;
+            margin-left: auto;
+            margin-right: auto; 
+        }
+      
+     
+
+        .personal_info tr td:first-of-type {
+            width: 120px;
+            padding-left: 10px;
+        }
+        .personal_info tr td:nth-of-type(2){
+            width: 380px;
+            padding-left: 10px;
+        }
+
+        .personal_info tbody .resident_num input{
+            width: 100px;
+        }
+        .personal_info tbody .birth input{
+            width: 50px;
+        }
+        .personal_info tbody textarea {
+            margin-top:5px;
+        }
+        #submit {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 20px;
+            width: 80px;
+            height: 40px;
+            background-color: blue;
+            color:white;
+            border: none;
+            border-radius: 3px;
+            
+        }
+
+      
+
+    </style>
+</head>
+<body>
+    <div class="personal_info">
+    <h3>개인정보입력 폼</h3>
+    
+        <form action="#" method="post">
+            <table>
+            <thead>
+                <tr>
+                    <td colspan="2">개인정보</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="resident_num">
+                    <td>주민등록번호</td>
+                    <td>
+                        <input type="text"  name="personal_num1" maxlength="6">
+                        <span> - </span><input type="password" maxlength="7">
+                        <button type="button" name="personal_num2">검증</button>
+                    </td>
+                </tr>
+                <tr class="birth">
+                    <td>생일</td>
+                    <td>
+                        <input type="text" name="year" maxlength="4"><span class="date">년</span>
+                        <input type="text" name="month" maxlength="2"><span class="date"> 월</span>
+                        <input type="text" name="day" maxlength="2"><span class="date">일</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>
+                        <input type="radio" id="male" name="gender">
+                        <label for="male">남자</label>&nbsp;&nbsp;
+                        <input type="radio" id="female" name="gender">
+                        <label for="female">여자</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>관심분야</td>
+                    <td>
+                        <radio>
+                            <input type="checkbox" name="hobby" value="travel">여행
+                        </radio>&nbsp;
+                        <radio>
+                            <input type="checkbox" name="hobby" value="movie">영화
+                         </radio>&nbsp;
+                        <radio>
+                            <input type="checkbox" name="hobby" value="reading">독서
+                        </radio>&nbsp;
+                        <radio>
+                            <input type="checkbox" name="hobby" value="music">음악
+                        </radio>&nbsp;
+                        <radio>
+                            <input type="checkbox" name="hobby" value="nothing">관심없음
+                        </radio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>자기소개</td>
+                    <td>
+                        <textarea rows="7" cols="40"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+       
+
+            <input id="submit" type="submit" value="수정완료">
+        </form>
+ 
+    </div>
+</body>
+</html>
