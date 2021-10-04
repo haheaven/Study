@@ -42,7 +42,7 @@
             height: 25px;
             color: white;
             text-align: center;
-            background-color: blue;
+            background-color: rgb(18, 18, 161);
         }
 
         .personal_info tbody {      
@@ -71,14 +71,14 @@
         .personal_info tbody textarea {
             margin-top:5px;
         }
-        #submit {
+        #button {
             display: block;
             margin-right: auto;
             margin-left: auto;
             margin-top: 20px;
             width: 80px;
             height: 40px;
-            background-color: blue;
+            background-color: rgb(18, 18, 161);
             color:white;
             border: none;
             border-radius: 3px;
@@ -120,9 +120,9 @@
                 <tr>
                     <td>성별</td>
                     <td>
-                        <input type="radio" id="male" name="gender">
+                        <input type="radio" id="male" name="gender" value="male">
                         <label for="male">남자</label>&nbsp;&nbsp;
-                        <input type="radio" id="female" name="gender">
+                        <input type="radio" id="female" name="gender" value="female">
                         <label for="female">여자</label>
                     </td>
                 </tr>
@@ -156,7 +156,7 @@
         </table>
        
 
-            <input id="submit" type="submit" value="수정완료">
+            <a href="04_practice.html"><input id="button" type="button" value="수정완료"></a>
         </form>
  
     </div>
