@@ -4,90 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/115ea10090.js" crossorigin="anonymous"></script>
-    <title>login</title>
+    <title>로그인</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css" integrity="sha512-4wfcoXlib1Aq0mUtsLLM74SZtmB73VHTafZAvxIp/Wk9u1PpIsrfmTvK0+yKetghCL8SHlZbMyEcV8Z21v42UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .loginbox {
-            width: 380px;
-            height: 450px;
-            text-align: center;
-            padding: 10px;
-            background-color: rgb(232, 249, 253);
+        /* 초기화 */
+        body, div, form {
+            padding: 0;
+            margin: 0;
             box-sizing: border-box;
         }
-        img{
-            display: block;
-            margin: 70px auto 30px;   
+        a {
+            text-decoration: none;
+            color :black;
         }
-        form{
-            width: 300px;
+        
+        /* login_container */
+        .login_container {
             margin-left: auto;
             margin-right: auto;
-            padding: 5px;
+            background-color: aliceblue;
+            width: 550px;
+            height: 600px;
         }
-        form input[type=text], input[type=password]{
-            width: 260px;
-            margin-bottom: 10px;
+        .logo_image {           
+            width: inherit;
+            padding-top: 100px;
+            padding-bottom: 30px;
+        }
+        .logo_image img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* form */
+        form {
+            text-align: center;
+        }
+        .login_box{
+            margin: 20px auto 20px;
+            
+        }
+        form .login_box input {
+            width: 350px;
             height: 30px;
-            padding-left: 10px;
-            border-radius: 3px;
-            border: 1px solid rgb(204, 200, 200);
-        }
-        form input[type="button"] {
-            width:270px;
-            height: 34px;
-            background-color: rgb(18, 18, 161);
-            color: white;
+            padding: 5px 10px;
             margin-bottom: 10px;
-            border: none;
-            border-radius: 3px;
-
+            border: 1px solid lightgray;
         }
-        form .check {
-            width: 260px;
+        form a {
+            width: 370px;
+            height: 40px; 
+        }
+        form a input {
+            width: 370px;
+            height: 40px;
+            background-color: darkblue;
+            color:white;
+            border: 0;
+           
+            cursor: pointer;
+        }
+        form .auto_login {
+            width: 370px;
             text-align: left;
-            font-size: 14px;
-            margin: 0;
-            padding-left: 10px;  
+            margin: 10px auto 20px;
         }
 
-        form input[type="checkbox"]{
-            width: 15px; 
+        /* 환경설정 */
+        .setting a{
+            display: block;
+            width: 370px;
+            margin-left: auto;
+            margin-right: auto;
+            color: grey;
+            text-align: center;
         }
-    
-        form .setting {
-            color: darkgray;
-            font-size: 13px;
-            text-decoration: none;
-            margin-top: 10px;
-        }
-        form a{
-            text-decoration: none;   
-            color: darkgray; 
-            font-size: 13px;
-        }
-       
     </style>
+
 </head>
 <body>
-  <div class="loginbox">
-    <img src="home_image.jpg" width="100px" height="100px">
-    <form class="login" action="#" method="post" >
-        <input type="text" name="id" placeholder="계정">
-        <input type="password" name="password" placeholder="비밀번호">
-        <a href="04_practice.html"><input type="button" value="로그인"></a>
-     <div class="check">
-        <input type="checkbox" name="select" id="autolog" checked="checked">
-        <label for="autolog">&nbsp;자동 로그인</label>
-       <input type="checkbox" name="select" id="savepwd" checked="checked"> 
-       <label for="savepwd">&nbsp;비밀번호 저장</label>
-     </div>
-     <div class="setting">
-       <i class="fas fa-cog">&nbsp;<a href=#> 환경설정</a></i>
-    </div>
-    </form>
-</div>
+    <div class="login_container">   
+        <div class="logo_image">
+            <img src="../tokyo.JPG" width="150px" height="150px">
+        </div>
 
+        <form>
+            <div class="login_box">
+                <input type="text" placeholder="계정" name="account_id">
+                <input type="password" placeholder="비밀번호" name="password">
+            </div>
+            <div class="login_button">
+                <a href="ex_board.html"><input type="button" value="로그인"></a>
+            </div>
+            <div class="auto_login">
+                <label><input type="checkbox" checked="checked"> 자동 로그인&nbsp;</label>
+                <label><input type="checkbox" checked="checked"> 비밀번호 저장</label>
+            </div>
+        </form>
+        <div class="setting">
+            <a href="#"><i class="fas fa-cog"></i><span> 환경설정</span></a>
+        </div>  
+        
+    </div>
     
 </body>
 </html>
