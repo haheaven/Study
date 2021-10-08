@@ -1,156 +1,293 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="reset.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <title>홈페이지</title>
-    
-</head>
-<body>
-    <header id="header">
-        <h1 class="logo">haheaven</h1>
-        <div class="menu">
-            <ul>
-                <li><a href=#>홈</a></li>
-                <li><a href=#>일상</a></li>
-                <li><a href=#>YOUTUBE</a></li>
-                <li><a href=#>방명록</a></li>
-            </ul>
-        </div>
-    </header>
-        <div class="home_img"><img src="home_image.jpg" width="100%" height="300px"></div>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+body {
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+}
 
-    <main id="main"> 
-        <div class="article">
-            <div class="desc">
-                <img src="IMG_2223.jpeg">
-                <p>제주도</p>
-            </div>
-            <div class="desc">
-                <img src="IMG_3993.jpeg">
-                <p>파리</p>
-            </div>
-            <div class="desc">
-                <img src="IMG_5323.GIF">
-                <p>디즈니랜드</p>
-            </div>
-            <div class="desc">
-                <img src="uk.JPG" >
-                <p>영국</p>
-            </div>
-            <div class="desc">
-                <img src="flower.jpeg">
-                <p>꽃</p>
-            </div>
-            <div class="desc">
-                <img src="coffee.jpeg" >
-                <p>카페</p>
-            </div>
-            <div class="desc">
-                <img src="tenbbura.jpeg" >
-                <p>쿠시가츠</p>
-            </div>
-        </div>
+/*header*/
+#header {
+    height: 130px;
+    padding-left: 30px;
 
-        <aside>
-            <ul>
-                <li><a href="#">국비</a></li>
-                <li><a href="#">JAVA</a></li>
-                <li><a href="#">SQL</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">JSP</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">ERROR</a></li>
-                <li><a href="#">생각하기</a></li>
-            </ul>
-       
-        <div class="notice"><a href="#">공지사항</a>
-            <div class="text">공지사항입니다.</div>
-        </div>
-        <div  class="recent_text">
-            <a herf="#">최근글&nbsp;&nbsp;</a>
-            <a herf="#">인기글</a>
-        </div>
-        <div class="tag"><a href="#">태그</a>
-        <div class="tag_text">#10월02일</div></div>
-        <div class="calendar"><span>달력</span>
-            <table width="80%" height="100px">
-                <caption>10월</caption>
-                <thead>
-                    <tr>
-                        <td>일</td> 
-                        <td>월</td>
-                        <td>화</td>
-                        <td>수</td>
-                        <td>목</td>
-                        <td>금</td>
-                        <td>토</td>
-                    </tr>
-                </thead>
-                <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td class="holiday">3</td>
-                        <td class="holiday">4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td class="holiday">9</td>
-                    </tr>
-                    <tr>
-                        <td class="holiday">10</td>
-                        <td class="holiday">11</td>
-                        <td>12</td>
-                        <td>13</td>
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                    </tr>
-                    <tr>
-                        <td class="holiday">17</td>
-                        <td>18</td>
-                        <td>19</td>
-                        <td>20</td>
-                        <td>21</td>
-                        <td>22</td>
-                        <td>23</td>
-                    </tr>
-                    <tr>
-                        <td class="holiday">24</td>
-                        <td>25</td>
-                        <td>26</td>
-                        <td>27</td>
-                        <td>28</td>
-                        <td>29</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td class="holiday">31</td>
-                    </tr>
-                 </tbody>
-            
-            </table>
-        </div>
-       
-    </aside>
+}
+#header .logo{
+    font-size: 32px;
+    line-height: 80px;
+    font-weight: 600;
+    display: inline-block; 
+    margin-bottom: 10px; 
+}
+#header .menu ul{
+    height: 30px; 
+}
+#header .menu li{
+    display: inline-block;
+    margin-left: 20px;
+    height: 30px;
    
-    </main>
-    <footer id="footer">
-        <div>
-            <p>TEL. 02.1234.5678 /경기 성남시 분당구 판교역로</p>
-            <p>Kakao Corp.</p>
-        </div>
-    </footer>
-</body>
-</html> 
+}
+#header .menu li a{
+    text-align: center;
+    text-decoration: none;
+    color:black;
+    height: 30px;
+    padding-bottom: 20px;
+}
+#header .menu li a:hover {
+    border-bottom: 4px solid gray;;
+}
+
+.home_img{
+    display: block;
+}
+
+
+/*main*/
+#main {
+    display: flex;
+    height: 50%;
+    padding: 50px 70px;
+}
+#main .article:not(:last-of-type){
+    width: 75%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.article h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+.article h3 span {
+    color : limegreen;
+}
+#main .desc {
+    display: inline-block;
+    width: 260px;
+    height: 270px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 20px 20px 55px 20px;
+}
+#main .desc img{
+   width:270px;
+   height:220px;
+   border-radius: 2px;
+}
+#main .desc .title{
+    margin-top: 20px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+}
+#main .desc .explain {
+    margin-top: 13px;
+    text-align: left;
+    color: rgb(172, 170, 170);
+    font-size: 18px;
+}
+#main .desc .date {
+    margin-top: 25px;
+    text-align: left;
+    font-size: 14px;
+    color: rgb(172, 170, 170);
+}
+
+
+
+
+
+
+
+#main aside {
+    display: block;
+    width: 25%;
+    padding-left: 20px;
+    padding-top: 30px;
+    border-left: 1px solid silver;
+}
+#main aside ul{
+    display: block;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid silver;
+    border-width: 60%;
+    
+}
+#main aside ul li{
+    display: block;
+    margin-bottom: 10px;
+}
+
+#main aside ul li a {
+    display: block;
+    color: rgb(109, 106, 106);
+    text-decoration: none;
+    width: inherit;
+}
+#main aside ul li a:hover{
+    font-weight: bold;
+}
+#main aside ul .smartweb .sub a{
+    font-size: 13px;
+}
+
+
+#main aside .notice{
+    display: block;
+    margin-bottom: 10px;
+    border-bottom: 1px solid silver;
+    padding-bottom: 30px;
+    border-width: 50%;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding-top: 6px;
+}
+#main aside .notice a{
+    display: block;
+    color: rgb(109, 106, 106);
+    text-decoration: none;
+    width: inherit;
+}
+#main aside .notice a:hover{
+    font-weight: bold;
+}
+
+#main aside .notice .text{
+    padding: 5px;
+    padding-top: 10px;
+    font-size: 13px;
+    color: darkgray;
+}
+
+#main aside .recent_text{
+    display: block;
+    border-bottom: 1px solid silver;
+    padding-bottom: 40px;
+    border-width: 50%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+#main aside .recent_text a{
+    display: inline-block;
+    color: rgb(109, 106, 106);
+    text-decoration: none;
+    width: inherit;
+}
+#main aside .recent_text a:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
+#main aside .tag {
+    display: block;
+    padding-top: 7px;
+    padding-bottom: 40px;
+    border-width: 60%;
+    border-bottom: 1px solid silver;
+    margin-right: 20px;
+}
+#main aside .tag a{
+    display: block;
+    color: rgb(109, 106, 106);
+    text-decoration: none;
+    width: inherit;
+}
+#main aside .tag a:hover{
+    font-weight: bold;
+}
+
+
+#main aside .tag .tag_text {
+    display: block;
+    padding: 5px;
+    padding-top: 10px;
+    font-size: 13px;
+    color: darkgray;
+}
+#main aside .calendar{
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-right: 20px;
+    color: rgb(109, 106, 106);
+}
+#main aside .calendar span{
+    display: block;
+    padding-bottom: 9px;
+}
+#main aside .calendar table{
+    display: block;
+    width: 180px;
+    height: 170px;
+    border-collapse: collapse;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding : 10px 5px;
+    color : rgb(110, 110, 117);
+    text-align: center;
+    line-height: 140px;
+}
+#main aside .calendar table caption {
+    text-align: center;
+    line-height: 10px;
+    margin-bottom: 6px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#main aside .calendar table thead{
+  font-weight: bold;
+  line-height: 15px;
+  text-align: center;
+  padding-left: 4px;
+}
+#main aside .calendar table tbody tr{
+    text-align: center;
+    line-height: 20px;
+    
+}
+#main aside .calendar table tbody tr td{
+    text-align: center;
+    padding-left: 4px;
+}
+
+
+
+
+/*footer*/
+#footer div{
+    display: block;
+    border-top: 1px solid silver;
+    padding: 40px 30px;
+    height: 100px;
+}
+#footer div p:first-of-type{
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
