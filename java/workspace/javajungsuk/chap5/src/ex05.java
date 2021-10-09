@@ -26,17 +26,11 @@ public class ex05 {
 	System.out.print(ballArr[i] + ",");
     System.out.println();
   
-	
 	//2.코드넣기
-	ball3 = Arrays.copyOfRange(ballArr, 0, 3);
+	ball3 = Arrays.copyOfRange(ballArr, 0, 3);   //Arrays.copyOfRange(복사할 배열, 첫 인덱스, 마지막인덱스) 마지막인덱스는 포함 안함 
 
-	
-	
-	
 	for(int i=0;i<ball3.length;i++) {
 		System.out.print(ball3[i]);
 	}
-
-	}
-
+  }
 }
