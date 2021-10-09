@@ -16,15 +16,11 @@ public class ex04 {
 		for(int i=0; i<arr.length; i++) {
 			for(int j=0; j<arr[i].length; j++) {
 				total += arr[i][j];
-				
 			}
 			average = (float)total/arr.length/arr[i].length;
-		}
-		
-		
+		}	
 	System.out.println("total="+total);
 	System.out.println("average="+average);
 
 	}
-
 }
