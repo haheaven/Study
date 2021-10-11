@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자 함수</title>
+    <script>
+        function CheckWeight(name, height, weight){
+            this.UserName = name;
+            this.UserHeight = height;
+            this.UserWeight = weight;
+            this.minWeight;
+            this.maxWeight;
+            this.getInfo = function(){
+                var str=""
+                str+="이름: "+this.UserName+", ";
+                str+="키: "+this.UserHeight+", ";
+                str+="몸무게: "+this.UserWeight+"<br> ";
+                return str;
+            }
+            this.getResult = function(){
+                this.minWeight = (this.UserHeight-100)*0.9-5;
+                this.maxWeight = (this.UserHeight-100)*0.9+5;
+
+                if(this.UserWeight>= this.minWeight && this.UserWeight <=this.maxWeight){
+                    return "정상몸무게";
+                }
+                else if(this.UserWeight<this.minWeight){
+                    return "미달몸무게";
+                } else {
+                    return this.maxWeight+"초과몸무게";
+                }
+            }
+
+        }
+
+        var jang = new CheckWeight("장보리",168, 62);
+        var park = new CheckWeight("박달재", 180, 88);
+        console.log(jang);
+        console.log(park);
+
+        document.write(jang.getInfo());
+        document.write(park.getResult());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+    <script>
+        // 변수 또는 함수의 유효 범위
+        // 지역 변수 : 스코프 영역에서 선언한 변수를 가리킴, 스크프 영역에서만 사용 가능 
+        // 전역 변수 : 자바스크립트 어디에서든 사용 가능 함수 
+        // 충돌을 방지하기 위해 스코프 범위 필요
+
+        function Fnc(){
+            alert("전역변수");
+        }
+
+        function outerFnc(){
+            function Fnc(){
+                alert("지역변수");  
+            }
+            Fnc();  // 지역변수의 fnc 실행 
+        }
+
+        Fnc();      // 전역변수 fnc 실행
+        outerFnc();
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

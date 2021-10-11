@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>return</title>
+    <script>
+        // function 함수명 (){ 자바스크립트코드1;  return 데이터(값);
+        //                    자바스크립트코드2; }
+
+        // var 변수 = 함수명();
+            function testAvg(arrDate){
+              var sum=0;
+              for(var i=0; i<arrDate.length; i++){
+                  sum += Number(prompt(arrDate[i]+"점수는?","0"));
+              }
+              var avg = sum/arrDate.length;
+              return avg;
+            }
+
+            var arrSubject = ["국어","수학"];
+            var result = testAvg(arrSubject);
+
+            document.write("평균점수는 " +result + "점입니다.");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
