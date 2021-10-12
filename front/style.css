@@ -72,6 +72,20 @@ body {
     padding-top: 25px;
     margin: 20px 20px 55px 20px;
 }
+.transform {
+    width: 270px;
+    height: 220px;
+    background-image: url(IMG_5685.jpeg);
+    background-size: 270px 220px;
+
+    opacity: 0;
+    transition: transform 2s, opacity 2s;
+}
+#main .desc img:hover ~ .transform {
+    transform: translate(0, -330px);
+    opacity: 1;
+}
+
 #main .desc img{
    width:270px;
    height:220px;
@@ -131,10 +145,18 @@ body {
 #main aside ul li a:hover{
     font-weight: bold;
 }
+#main aside ul .smartweb .sub {
+    margin-top: 15px;
+    border-bottom: none;
+    padding: 0 10px;
+    border-left: 1px solid lightgray;
+}
 #main aside ul .smartweb .sub a{
     font-size: 13px;
 }
-
+#main aside ul .smartweb .sub a:hover{
+    font-weight: bold;
+}
 
 #main aside .notice{
     display: block;
@@ -267,52 +289,3 @@ body {
 #footer div p:first-of-type{
     margin-bottom: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
