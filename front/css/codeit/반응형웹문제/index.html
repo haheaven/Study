@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IN'O</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+     * {
+       padding : 0;
+       margin: 0;
+       box-sizing: border-box;
+     }
+     .gnb {
+      width: 100%;
+      height: 40px;
+      background-color: #353535;
+      color: white;
+      font-size: 20px;
+      padding: 10px 30px;
+      display: fixed;
+    }
+     @media screen and (max-width:769px){
+     
+    .img {
+      width:100%;
+      height: 350px;
+      background-image: url(images/main_img.jpg);
+      background-size: cover;
+      background-position: center center;
+    }
+    .content {
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .port {
+      font-size: 16px;
+      color: #4A4A4A;
+      margin-bottom: 10px;
+    }
+    .make {
+      font-size: 20px;
+      color: #1B1B1B;
+      margin-bottom: 30px;
+    }
+    .desc {
+      font-size: 16px;
+      color: #7A7A7A;
+    }
+    .img1 {
+      width: 100%;
+      height: 480px;
+      background-image: url(images/img1.jpg);
+      background-size: 100% 480px;
+    }
+    .img2 {
+      width: 100%;
+      height: 480px;
+      background-image: url(images/img2.jpg);
+      background-size: 100% 480px;
+      position: relative;
+    }
+    .view {
+      position: absolute;
+      border: 5px solid white;
+      color:  white;
+      width : inherit;
+      height: inherit;
+      text-align: center;
+      font-weight: bold;
+      
+    }
+    .view span {
+      width: 150px;
+      border:4px solid white;
+      padding: 9px 40px;
+      line-height: 480px;
+    }
+    .img3 {
+      width: 100%;
+      height: 480px;
+      background-image: url(images/img3.jpg);
+      background-size: 100% 480px;
+    }
+     }
+
+     @media screen and (min-width:768px){
+      .gnb {
+      width: 100%;
+      height: 40px;
+      background-color: #353535;
+      color: white;
+      font-size: 20px;
+      padding: 10px 30px;
+      display: fixed;
+    }
+    .img {
+      width:100%;
+      height: 350px;
+      background-image: url(images/main_img.jpg);
+      background-size: cover;
+    }
+    .content {
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .port {
+      font-size: 16px;
+      color: #4A4A4A;
+      margin-bottom: 10px;
+    }
+    .make {
+      font-size: 20px;
+      color: #1B1B1B;
+      margin-bottom: 30px;
+    }
+    .desc {
+      font-size: 16px;
+      color: #7A7A7A;
+    }
+    .imgs { 
+      width: 100%;
+      }
+    .img1 {
+      width: 50%;
+      height: 480px;
+      background-image: url(images/img1.jpg);
+      background-size: 100% 480px;
+      float: left;
+    }
+
+    .img2 {
+      width: 50%;
+      height: 240px;
+      background-image: url(images/img2.jpg);
+      background-size: 100% 240px;
+      float: left;
+      position: relative;
+      padding: 90px 130px;
+    }
+    .img3 {
+      width: 50%;
+      height: 240px;
+      background-image: url(images/img3.jpg);
+      background-size: 100% 240px;
+      float: left;
+    }
+
+    .view {
+      font-size: 16px;
+      border: 5px solid white;
+      color:  white;
+      width : inherit;
+      height: 50px;
+      text-align: center;
+      padding-top: 12px;
+      font-weight: bold;
+      position: absolute;
+    }
+}
+
+@media screen and (min-width:992px){
+      .gnb {
+      width: 100%;
+      height: 40px;
+      background-color: #353535;
+      color: white;
+      font-size: 20px;
+      padding: 10px 30px;
+      display: fixed;
+    }
+    .container { width: 100%; }
+    .img {
+      width:50%;
+      height: 600px;
+      background-image: url(images/main_img.jpg);
+      background-size: cover;
+      float: left;
+    }
+    .content {
+      padding-left: 30px;
+      padding-right: 30px;
+      width: 50%;
+      height: 200px;
+      float: left;
+    }
+    .port {
+      font-size: 16px;
+      color: #4A4A4A;
+      margin-bottom: 10px;
+    }
+    .make {
+      font-size: 20px;
+      color: #1B1B1B;
+      margin-bottom: 30px;
+    }
+    .desc {
+      font-size: 16px;
+      color: #7A7A7A;
+    }
+    .imgs { 
+      width: 100%;
+      }
+    .img1 {
+      width: 25%;
+      height: 300px;
+      background-image: url(images/img1.jpg);
+      background-size: 100% 300px;
+      float: left;
+    }
+
+    .img2 {
+      width: 25%;
+      height: 150px;
+      background-image: url(images/img2.jpg);
+      background-size: 100% 150px;
+      float: left;
+      position: relative;
+      padding: 50px 130px;
+    }
+    .img3 {
+      width: 25%;
+      height: 150px;
+      background-image: url(images/img3.jpg);
+      background-size: 100% 150px;
+      float: left;
+    }
+
+    .view {
+      font-size: 16px;
+      border: 5px solid white;
+      color:  white;
+      width : 130px;
+      text-align: center;
+      padding-top: 12px;
+      font-weight: bold;
+      position: absolute;
+    }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="gnb">IN'O</div>
+  <div class="container">
+    <div class="img"></div>
+   
+    <div class="content">
+      <div class="port">Portfolio</div>
+      <div class="make">Make Hardware Soft</div>
+      <div class="desc">IN'O is a hanger-type bluetooth speaker that does not merely focus on uts audio features.<br>
+      It naturally blends into your life though lean Ux and minimal design</div>
+    </div>
+    
+    <div class="imgs">
+       <div class="img1"></div>
+      
+       <div class="img2">
+        <div class="view"><span>VIEW MORE</span></div>
+       </div>
+       <div class="img3"></div>
+    </div>
+  </div>
+  
+  
+</body>
+
+</html>
