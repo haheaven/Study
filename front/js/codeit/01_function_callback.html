@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback</title>
+</head>
+<body>
+    <script>
+        function makeQuiz(quiz, answer, success, fail){
+            if(prompt(quiz) === answer){
+                console.log(success());
+            } else {
+                console.log(fail());
+            }
+        }
+        function getsuccess(){
+            alert("맞췄습니다");
+        }
+        function getfail(){
+            alert("틀렸습니다.");
+        }
+        let question = '5+3=?';
+        makeQuiz(question, '8', getsuccess, getfail);
+    </script>
+    
+</body>
+</html>
