@@ -15,13 +15,13 @@ public class ex02 {
 	boolean isKwang;
 	
 	public SutdaCard() {
-		this(1,true);
+		this(1,true);  // 기본 생성자 
 	}
 	
 	public SutdaCard(int num, boolean isKwang) {
 		super();
 		this.num = num;
-		this.isKwang = isKwang;
+		this.isKwang = isKwang;   //인수가 있는 생성자일때 설정한 초기화 
 	}
 	
 	public String info() {
