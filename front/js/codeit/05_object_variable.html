@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+    
+</head>
+<body>
+    <script>
+        let myVoca = {
+            'function': "함수",
+            variable: '변수',
+            constant: '상수',
+            local: '지역의',
+            global: '전반적인'
+        }
+        // 1. 삭제하기 
+        delete myVoca.function;
+        delete myVoca.constant;
+        delete myVoca.local;
+        // 2. 추가하기 
+        myVoca.extend = '확장하다';
+        myVoca.export = '내보내다';
+        myVoca.import = '불러오다';
+        myVoca['default value'] = "기본값";
+
+        console.log(myVoca);
+        console.log( myVoca['default value']);
+
+    </script>
+</body>
+</html>
