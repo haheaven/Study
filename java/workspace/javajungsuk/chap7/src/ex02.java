@@ -2,7 +2,7 @@ package chap7;
 //2. 문제7-1의 SutdaDeck클래스에 다음에 정의된 새로운 메서드를 추가하고 테스트 하시오.
 class SutdaDeck2 {
 	final int CARD_NUM = 20;
-	SutdaCard2[] cards = new SutdaCard2[CARD_NUM];
+	SutdaCard3[] cards = new SutdaCard3[CARD_NUM];
 
 	SutdaDeck2() {
 		// SutdaCard 초기화
@@ -11,7 +11,7 @@ class SutdaDeck2 {
 		  int num = i%10+1;
 		  boolean isKwang = ((i<10) && (num==1 || num==3 ||num==8));  //만족할 때만 true 
 		//  System.out.println(isKwang);
-		  cards[i] = new SutdaCard2(num, isKwang);
+		  cards[i] = new SutdaCard3(num, isKwang);
 	   }
 	}
 	
@@ -20,7 +20,7 @@ class SutdaDeck2 {
 		for(int i=0; i<cards.length; i++) {
 			int n = (int)(Math.random()*cards.length);
 			
-			SutdaCard2 tmp = cards[i];    //임시 객체 생성해서 자리 swap
+			SutdaCard3 tmp = cards[i];    //임시 객체 생성해서 자리 swap
 			cards[i] = cards[n];
 			cards[n] = tmp;           
 			
@@ -28,14 +28,14 @@ class SutdaDeck2 {
 	}
 	
 	//2. pick
-	SutdaCard2 pick(int index) {
+	SutdaCard3 pick(int index) {
 		if(index < 0 || index >= CARD_NUM)
 			return null;
 		
 		return cards[index];     // index로 지정된 객체 그대로 반환 
 	}
 	//3. pick
-	SutdaCard2 pick() {	
+	SutdaCard3 pick() {	
 		int n = (int)(Math.random()*cards.length);
 		return cards[n];		 // 매개변수 없으면 랜덤 값 아무곳 반환 
 	}	

@@ -5,7 +5,7 @@ package chap7;
 class Product {
 	int price;
 	int bonusPoint;
-	// 추
+	// 추가 
 	Product(){	
 	}
 	Product(int price){
