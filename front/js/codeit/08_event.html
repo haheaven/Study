@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event 코드잇 연습</title>
+   
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main {
+             width: 400px;
+             height: 180px;
+             border : 1px solid black; 
+             margin-left: 20px;
+            
+            }
+        .title {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .to-do-list {
+            width: 200px;
+            margin: 10px auto;
+            cursor: pointer;
+        }
+        .done {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+        button {
+            margin-right: 20px;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+        }
+        h3 { 
+            margin: 40px 20px 10px;
+         }
+    </style>
+
+</head>
+<body>
+     <!-- to-do-list 했으면 중간선긋기 -->
+    <div class="main">
+        <h2 class="title">&lt;오늘 할 일&gt;</h2>
+        <ol>
+          <li class="to-do-list">수업 집중하기</li>
+          <li class="to-do-list">이벤트 함수 복습하기</li>
+          <li class="to-do-list">이벤트 todolist구현하기</li>
+        </ol>
+      </div><br><hr>
+
+      <script>
+          let list = document.getElementsByClassName('to-do-list');
+
+          for(let i=0;i<list.length; i++){
+              list[i].onclick = function(){
+                  this.classList.toggle('done');
+              }
+          }
+      </script>
+    
+    <!--------------------------------------------------------------------------------------->
+
+    <!-- id 버튼을 누르면 id 입력창, pwd버튼 누르면 pwd 입력창 -->
+      <div style="display: block;">
+        <!-- 1. 인라인 이벤트 모델 -->
+          <h3>인라인 이벤트 모델 구현</h3>
+          <button style="margin-left: 20px" onclick="Bid()">id</button>
+          <button style="margin-left: 20px" onclick="password()">password</button>
+     </div>
+     <div style="display: block;">
+        <!-- 2. 고전 이벤트 모델 -->
+          <h3>고전 이벤트 모델 구현</h3>
+          &nbsp;&nbsp;&nbsp;익명함수이벤트: <button id="btn_id">id</button>
+          &nbsp;&nbsp;함수선언식이벤트: <button id="btn_pwd">password</button>
+     </div>
+
+
+      <script>
+          // 인라인 
+          function Bid(){
+            prompt("id를 입력하세요");  
+          }
+          function password(){
+            prompt("password를 입력하세요");  
+          }
+
+          //고전 
+          // id는 익명함수로 
+          // pwd는 함수선언문으로 
+          document.getElementById("btn_id").onclick = function(){
+                prompt("id를 입력하세요");  
+          }
+          function btnPwd(){
+            prompt("password를 입력하세요");  
+          }
+          document.getElementById("btn_pwd").onclick = btnPwd;
+      </script>
+
+
+
+
+
+
+
+</body>
+</html>
