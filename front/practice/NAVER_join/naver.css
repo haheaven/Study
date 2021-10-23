@@ -1,0 +1,269 @@
+
+/* 초기화 */
+body { background-color: #f5f6f7;}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{ 
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+ul, ol {
+    list-style-type: none;
+}
+/* 헤더 - 로고 및 홈 링크 */
+.header, .h_logo{
+    display: block;
+    margin: 50px auto;
+    background-image: url(https://ssl.pstatic.net/static/nid/join/m_logo_naver.png);
+    background-size: 165px auto;
+    background-repeat: no-repeat;
+    width: 165px;
+    height: 32px;
+    font-size: 0;
+}
+/* 메인 섹션 */
+.section {
+    width: 100%;
+    display: block;
+    margin: 20px auto;
+}
+.section form {
+    display: block;
+    max-width: 768px;
+    min-width: 460px;
+    margin: 0 auto;
+}
+.form_title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.container {
+    width: 460px;
+    margin: 0 auto;
+}
+/* .same_box_size => 아이디, 비밀번호, 비밀번호 재확인, 이름, 성별,이메일 */
+/* text(password) 및 첨부글&사진 박스*/
+.form_title+.same_box_size{
+    display: block;
+    width: 460px;
+    height: 51px;
+    margin-bottom: 10px;
+    position: relative;
+    background-color: white;
+    border: solid 1px #dadada;
+}
+/* text 및 password input box */
+.same_box_size input[type="text"],  .same_box_size input[type="password"]{
+    width: 100%;
+    padding-left: 10px; 
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 16px;
+    line-height: 18px;
+}
+/* 사용자 입력말고 고정 텍스트 자리 */
+.in_text { 
+    position: absolute;
+    top: 16px;
+    right: 13px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #8e8e8e;
+}
+.in_img{
+    position: absolute;
+    background-image: url(https://static.nid.naver.com/images/ui/join/m_icon_pw_step.png);
+    top:50%;
+    right: 13px;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background-repeat: no-repeat;
+    background-size: 125px 75px;
+    cursor: pointer;
+}
+.input_pw {background-position: 0 0;}
+.input_pw_ch{
+    background-position: -27px 0;
+}
+
+
+
+/* 생년월일 */
+.birth_container {
+    width: 100%;
+    height: 52px;
+    background-color: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+}
+.birth_box {
+    position: relative;
+    display: inline-block;
+    width: 148px;
+    height: 50px;
+    background-color: white;
+    border: solid 1px #dadada;
+    padding-left: 5px;
+}
+.birth_box select {
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    outline: none;
+    color: #8e8e8e;
+} 
+.birth_box #user_year, #user_day {
+    width: 90%;
+    padding-left: 5px; 
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 16px;
+    line-height: 18px;
+}
+/* 성별 */
+#gender {
+    width: inherit;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding-left: 20px;
+    color: #8e8e8e;
+}
+/* 휴대전화 */
+.phone_confirm {
+    display: block;
+    width: 460px;
+    height: 51px;
+    margin-bottom: 10px;
+    position: relative;
+    border: solid 1px #dadada;
+}
+.phone_confirm #user_check {
+    width: 100%;
+    padding-left: 10px; 
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 16px;
+    line-height: 18px;
+    background: none;
+}
+.phone_country{
+    display: block;
+    width: 460px;
+    height: 51px;
+    margin-bottom: 15px;
+    border: solid 1px #dadada;
+}
+.phone_country select {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    padding: 2px 10px;
+    outline: none;
+    color: #8e8e8e;
+}
+.phone_input_box {
+    width: 460px;
+    height: 51px;
+    margin-bottom: 15px;
+    
+}
+.phone_input {
+    display: inline-block;
+    width: 330px;
+    height: 51px;
+    position: relative;
+    background-color: white;
+    border: solid 1px #dadada;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+.phone_input input{
+    width: 330px;
+    height: 100%;
+    background-color: white;
+    border: none;
+    padding: 2px 15px;
+    outline: none;
+    display: inline-block;
+}
+#receive_code{
+    display: inline-block;
+    width: 115px;
+    height: 51px;
+    background-color: #03c75a;
+    color: white;
+    font-size: 17px;
+    border: none;
+    outline: none;
+}
+.join_btn  .join_btn{
+    display: block;
+    width: 460px;
+    height: 51px;
+    background-color: #03c75a;
+    color: white;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    margin-top: 40px;
+}
+
+/* footer */
+.footer {
+    max-width: 768px;
+    min-width: 460px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px 0 15px 0;
+}
+.footer ul{  margin: 0 0 9px 0; }
+.footer ul li {
+    position: relative;
+    font-size: 12px;
+    display: inline;
+    padding: 0 7px 0 7px;
+    border-right: 1px solid #8e8e8e ;
+}
+.footer ul li:last-of-type { border-right: none;}
+.footer ul li a{  color: #7e7e7e;  }
+.footer ul li a:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+.footer p{
+    display: inline-block;
+    font-size: 12px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: 400;
+    color: #7e7e7e;
+}
+/*error 메시지*/
+.msg {
+    display: block;
+    margin: 9px 0 12px 0;
+    font-size: 12px;
+    line-height: 14px;
+    color: red; 
+}
+
+.pass{
+    display: block;
+    margin: 9px 0 12px 0;
+    font-size: 12px;
+    line-height: 14px;
+    color:green;
+}

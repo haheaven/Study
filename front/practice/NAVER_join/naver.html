@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>naver</title>
+    <link href="naver.css" rel="stylesheet">
+    <script src="naver.js"></script>
+  
+   
+</head>
+<body>
+    <header class="header">
+        <a href="http://www.naver.com" class="h_logo"></a>
+    </header>
+    <section class="section">
+        <form action="#" method="post">
+            <div class="container">
+                <!-- 아이디 -->
+                <label for="user_id">
+                    <span class="form_title" id="userId">아이디</span>
+                    <span class="same_box_size">
+                        <input type="text" name="user_id" id="user_id">
+                        <span class="in_text">@naver.com</span>
+                    </span>
+                    <span class="msg" ></span>
+                </label>
+
+                <!-- 비밀번호 확인 -->
+                <label for="user_pw">
+                    <span class="form_title" id="userPw">비밀번호</span>
+                    <span class="same_box_size">
+                        <input type="text" name="user_pw" id="user_pw">
+                        <span class="in_img input_pw"></span>
+                    </span>
+                    <span class="msg" ></span>
+                </label>
+                <!-- 비밀번호 재확인 -->
+                <label for="user_pw_ch">
+                    <span class="form_title" id="userPwCheck">비밀번호 재확인</span>
+                    <span  class="same_box_size">
+                        <input type="text" name="user_pw_ch" id="user_pw_ch">
+                        <span class="in_img input_pw_ch"></span>
+                    </span>
+                    <span class="msg"></span>
+                </label>
+          
+                <!-- 사용자 이름 -->
+                <label for="user_name">
+                    <span class="form_title" id="userName">이름</span>
+                    <span  class="same_box_size">
+                        <input type="text" name="user_name" id="user_name">
+                        <span class="in_text"></span>
+                    </span>
+                    <span class="msg"></span>
+                </label>
+
+               <!-- 생년월일 -->
+                <label>
+                    <span class="form_title" id="userYear">생년월일</span>
+                <div class="birth_container">
+                    <span class="birth_box">
+                        <input type="text" name="user_year" id="user_year" placeholder="년(4자)" maxlength="4">
+                    </span>
+                    <span class="birth_box">
+                        <select id="month_select" name="user_month">
+                            <option value="">월</option>
+                            
+                        </select>
+                    </span>
+                    <span class="birth_box">
+                        <input type="text" name="user_day" id="user_day" placeholder="일" maxlength="2">
+                    </span>
+                </div>
+                    
+                    <span class="msg"></span>
+                </label>
+
+                <!-- 성별 -->
+                <label for="user_gender">
+                    <span class="form_title" id="userGender">성별</span>
+                    <span class="same_box_size">
+                        <select name="gender" id="gender">
+                            <option value="">성별</option>
+                            <option value="M">남자</option>
+                            <option value="F">여자</option>
+                            <option value="no_choice">선택안함</option>
+                        </select>
+                        <span class="in_text"></span>
+                    </span>
+                    <span class="msg"></span>
+                </label>
+                <!-- 이메일 -->
+                 <label for="user_Email">
+                    <span class="form_title" id="userEmail">본인 확인 이메일<span>(선택)</span></span>
+                    <span  class="same_box_size">
+                        <input type="text" name="user_email" id="user_email" placeholder=" 선택입력">
+                        <span class="in_text"></span>
+                    </span>
+                    <span class="msg"></span>
+                </label>
+                <!-- 휴대전화 -->
+                <div class="phone">
+                    <span class="form_title" id="userPhone">휴대전화</span>
+                    <span class="phone_country">
+                        <select id="county_code" name="county_code"></select>
+                    </span>
+                    <span class="phone_input_box">
+                        <span class="phone_input">
+                            <input type="text" name="user_phone" id="user_phone" placeholder="전화번호 입력">
+                        </span>
+                            <input type="button" value="인증번호 받기" id="receive_code">
+                    </span>
+                    <span class="phone_confirm">
+                        <input type="text" name="user_check" id="user_check" placeholder="인증번호를 입력하세요">
+                    </span>
+                    <span class="msg"></span>
+                </div>
+                <!-- 가입하기 버튼 -->
+            <div class="join_btn">
+                <button class="join_btn" id="joinBtn">가입하기</button>
+            </div>
+        </form>
+    </section>
+    <!-- footer -->
+    <footer class="footer">
+            <ul class="footer_list">
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">책임의 한계와 법적고지</a></li>
+                <li><a href="#">회원정보 고객센터</a></li>
+            </ul>
+            <p>© NAVER Corp.</p>
+       
+    </footer>
+          
+
+
+</body>
+
+</html>
