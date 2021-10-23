@@ -83,14 +83,9 @@ public class ex19 {
 		}
 	}
 	
-	
 	// 오답 풀이 
 	// - summary()에서 유효성 검사하기 
 	// - 배열 복사 메소드기억하기..System.arraycopy(기존, 기존의시작인덱스, 새배열, 새배열시작인덱스, 길이);
-	
-
-	
-	
 	
 	class Product2{
 		int price;
@@ -104,6 +99,7 @@ public class ex19 {
 		
 		public String toString() {return "Tv2"; }
 	}
+	
 	class Computer extends Product2{
 		Computer() { super(200); }
 		
