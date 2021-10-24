@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSINSA</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="musinsa.css" rel="stylesheet">
+    <script src="musinsa.js"></script>
+    <script src="musinsa_non.js"></script>
+    <script src="musinsa_non.js"></script>
+
+    
+</head>
+<body>
+<div class="login_container">
+    <div class="title">로그인</div>
+    <div class="login_wrapper">
+        <!-- 기존회원/비회원-->
+        <div class="nav">
+           <a href="musinsa_member.html" id="exist">기존회원</a>
+           <a href="#" id="no_exist">비회원 주문조회</a>
+        </div>
+       
+        <form action="../naver_join.html/naver.html" id="formNonMember">
+            <label><span class="nonmember_title">이름</span>
+                <div class="login_box">
+                    <input type="text"  id="userName" name="userName" placeholder="주문자명을 입력해주세요.">
+                </div>
+            </label>
+            <span class="msg"></span>
+
+            <label><span class="nonmember_title">주문번호</span>
+                <div class="login_box">
+                    <input type="text"  id="userOrderNo" name="userOrderNo" placeholder="주문자명을 입력해주세요.">
+                </div>
+            </label>
+            <span class="msg"></span>
+        <button class="nonmember_btn">비회원 주문조회</button>
+        </form>
+    </div>  
+        
+    <div class="join_box">
+        <span>무신사 <u>회원 혜택</u>을 받아보세요</span>
+        <a href="#">회원가입</a>
+    </div>
+</div>
+      
+</body>
+
+
+</html>

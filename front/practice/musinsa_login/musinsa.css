@@ -1,0 +1,196 @@
+    /* 초기화 */
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    ol, ul {   list-style: none; }
+    a{ 
+        color: black;
+        text-decoration: none;
+    }
+    body {
+        background-color: rgb(238, 235, 235);}
+
+    .login_container{
+        width: 550px;
+        min-height: 665px;
+        height: 900px;
+        background-color: white;
+        margin: 0 auto;
+        border: none;
+    }
+    .title {
+       padding-top: 100px;
+       padding-bottom: 40px;
+       font-size: 21px;
+       font-weight: 700;
+       text-align: center;
+       position: relative;
+    }
+    .login_wrapper{
+        width: 500px;
+        margin: 0 auto;
+    }
+    .nav{
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+    .nav a{
+        padding: 0 10px 20px 10px;
+        font-weight: 800;
+        font-size: 18px;
+        color: #b3b3b3;
+        text-align: center;
+        width: 190px;
+    }
+    .nav a:first-of-type{
+        border-bottom: 3px solid black;
+        color: black;
+    }
+    .nav a:last-child{ border-bottom: 2px solid #b3b3b3;  }
+    .nav a:focus {
+        border-bottom: 3px solid black;
+        color: black; 
+    }
+ 
+    /* 아이디 비번 박스 */
+    form{
+        width: 360px;
+        position: relative;
+        margin: 0 auto;
+    }
+    .login_box {
+        margin: 10px auto;
+        width: 100%;
+        height: 50px;
+        border: 1px solid #e5e5e5;
+        padding: 15px 15px 0 15px;
+    }
+    .login_box input{
+        width: inherit;
+        border: none;
+        outline: none;
+        font-size: 15px;
+    }
+    form button{
+        width: 360px;
+        height: 50px;
+        margin: 10px auto;
+        background-color: black;
+        color: white;
+        font-weight: 600;
+        font-size: 15px;  
+        cursor:pointer;
+    }
+
+    .msg{
+        display: block;
+        color: red;
+        font-size: 14px;
+        padding-bottom: 4px;
+    }
+    /* 비회원 로그인 박스 */
+    .nonmember_title:last-of-type {
+        display: block;
+        margin-top: 15px;
+    }
+    /* 자동 로그인 줄 */
+    .login_auto{
+        width: 360px;
+        margin: 15px auto 0;
+        padding-bottom: 20px;
+    }
+    /* 비회원 주문조회 버튼 */
+    .nonmember_btn {
+        display: inline-block;
+        margin-top: 15px;
+        margin-bottom: 40px;
+    }
+    .login_auto label{
+        font-size: 16px;
+        font-weight: 400;
+        padding-right: 63px;
+        color: #b3b3b3;
+    }
+    #auto_check { display: none; }
+    .check_img{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background-image: url(../../images/uncheck.png);
+        background-size: 18px 18px;
+        margin-right: 5px;
+    }
+    .check_img2 {
+        background-image: url(../../images/check.png);
+    }
+    .search a, .search {
+        display: inline-block;
+        font-size: 16px;
+        color: #b3b3b3;
+    }
+    .search:last-of-type{ margin-left: 10px;  }
+    /* 다른 방법 로그인 */
+    .other_container{   padding-bottom: 40px; }
+    .other_login{
+        display: block;
+        width: 360px;
+        height: 50px;
+        margin: 20px auto;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 17px;  
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+    }
+    .kakao_login{   
+        background-color: #fee500;
+        border: 1px solid #fee500;
+    }
+    #kakao_img{
+        display: inline-block;
+        background-image: url(https://static.msscdn.net/ui/build/m/img/old/bg_social.png?v=20211022140402);
+        background-repeat: no-repeat;
+        position: relative;
+        top: 6px;
+        width: 30px;
+        height: 30px;
+        background-size: 60px 30px;
+        vertical-align: top;   
+    }
+    .apple_login{
+        background-color: white;
+        border: 1px solid #b3b3b3;
+    }
+    #apple_img{
+        display: inline-block;
+        position: relative;
+        top: 10px;
+        background-image: url(https://static.msscdn.net/ui/build/m/img/old/bg_social.png?v=20211022140402);
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        background-size: 60px 30px;
+        background-position: -30px 0;
+        z-index: 1;
+    }
+    /* 회원가입 박스 */
+    .join_box{
+        width: 360px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+    .join_box span {
+        font-size: 16px;
+    }
+    .join_box a{
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 10px;
+        color: #0078bb;
+    }

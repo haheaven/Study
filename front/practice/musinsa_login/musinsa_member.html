@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>MUSINSA</title>
+    <link href="musinsa.css" rel="stylesheet">
+    <script src="musinsa.js"></script>
+    
+</head>
+<body>
+    
+  <div class="login_container">
+      <div class="title">로그인</div>
+      <div class="login_wrapper">
+        <!-- 기존회원/비회원-->
+        <div class="nav">
+           <a href="#" id="exist">기존회원</a>
+           <a href="musinsa_nonmember.html" id="no_exist">비회원 주문조회</a>
+        </div>
+       
+        <!-- 아이디 비번 폼 -->
+        <form action="../naver_join.html/naver.html" id="formLogin">
+            <div class="login_box">
+                <input type="text"  id="userId" name="userId" placeholder="아이디를 입력해주세요.">
+            </div>
+            <span class="msg"></span>
+
+            <div class="login_box">
+                <input type="password" id="userPw" name="userPw" placeholder="비밀번호를 입력해주세요.">
+            </div>
+            <span class="msg"></span>
+
+            <button id="login_btn">로그인</button>
+        </form>       
+        <!-- 자동로그인/ 아이디 /비번 찾기-->
+        <div class="login_auto">
+            <input type="checkbox" id="auto_check">
+            <span class="check_img"></span>
+            <label for="auto_check" id="check_click">자동로그인</label>
+            <span class="search"><a href="#">아이디 찾기 </a></span>
+            <span class="search">&nbsp;|</span>
+            <span class="search"><a href="#">비밀번호 찾기</a></span>
+        </div>
+        <!--다른 로그인-->
+        <div class="other_container">
+            <a href="#" class="other_login kakao_login">
+                <span id="kakao_img"></span><span>카카오 로그인</span>
+            </a>
+            <a href="#" class="other_login apple_login">
+                <span id="apple_img"></span><span>Apple 로그인</span>
+            </a>
+        </div>
+        <!-- 회원가입 -->
+        <div class="join_box">
+            <span>무신사 <u>회원 혜택</u>을 받아보세요</span>
+            <a href="#">회원가입</a>
+        </div>
+      </div>
+
+
+  </div>
+
+
+</body>
+</html>
