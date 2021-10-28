@@ -1,0 +1,69 @@
+<ch2. 디렉티브 태그 >
+: 서블릿 클래스로 변환할 때 JSP 페이지와 관련된 정보를 JSP 컨테이너에 지시하는 메시지, JSP  페이지를 수정하여 다시 컴파일하는 
+경우에만 역할을 수행하므로 개별 HTML 응답에 영향을 주지 않는다.
+
+  1. 종류
+	 (1) page   <%@ page ~~ %>   
+	  : JSP 페이지에 대한 정보 설정 
+     	1) <%@ page language="java" %>
+		2) <%@ page contentTye="text/html; charset=UTF-8"  %>
+		3) <%@ page pageEncoding="UTF-8" %>
+		4) <%@ page import="java.util.Calendar" %>    
+		5) <%@ page session="true" %>        
+		6) <%@ page buffer="8KB" %>
+		7) <%@ page autoFlush="true" %>
+		8) <%@ page errorPage="error.html" %>  --> 만약 exception이 발생하면 error.html에 가서 에러를 보여줌
+		9) <%@ page isErrorPage= "false" %>    --> 현재 페이지가 에러페이지를 true/false 표시 ( 만약 8)으로가면 error.html에는 isErrorPage = "true" 로 명시를해야함!
+      
+  
+  	(2) include <%@ include file="파일명" %>
+  	  :  JSP 페이지의 특정 영역의 다른 문서 포함 
+  	     다른 곳에 있는 외부 파일의 내용을 포함하는 태그..!
+  	     만약 외부 파일이 같은 폴더(디렉터리)에 있으면 파일명만, 다른 폴더면 url설정해야한다. 
+  	     보통 header/footer 파일을 따로 만들어서 관리함 
+  	  
+  
+  	 (3) taglib <%@ taglib uri="경로" prefix="태그 식별자" %>
+  	  : JSP 페이지에서 사용할 태그 라이브러리 설정 
+  	  
+  	  
+  
+   2. test
+   
+   1) 디렉티브 태그의 세가지 유형 
+      - page 	: 페이지 정보 설정(콘텐츠 유형, 사용할 자바 클래스, 버퍼 크기, 오류 페이지 설정..) <%@ page %>
+      - include : 다른 영역 페이지 포함(머리글, 바닥글 등 다른 영역에 설정하여 포함시킴 )			  <%@ include file = >%
+      - taglib  : 사용 태그에 대한 라이브러리 설정 										  <%@ taglib uri= prefix=%>
+   
+   
+   2) JSP 페이지가 사용할 자바 클래스를 설정하기 위한 page 디렉티브 태그의 속성 
+    : import
+    
+   3) JSP 페이지의 특정 영역에 외부 파일의 내용을 포함하는 디렉티브 태그? <%@ include file=/// %>
+    
+   4) page.jsp 생성하기 
+   5) header02.jsp 생성하기
+   6) taglib02.jsp 생성하기 
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   	  
+  	  
+  	  
