@@ -9,7 +9,7 @@ public class ex10 {
 		} catch(Exception e) {
 		     System.out.println(7);
 		}
-
+	//	Exception > runtimeException > NullPointerException
 	}
 	static void method1() throws Exception {
 		try {
