@@ -14,15 +14,10 @@ public class Book {
 	private String releaseDate;
 	private String condition;
 	
-	
-	
 	public Book() {
 		super();
 		
 	}
-	
-	
-	
 	
 	public Book(String bookId, String name, Integer unitPrice) {
 		super();
@@ -30,9 +25,6 @@ public class Book {
 		this.name = name;
 		this.unitPrice = unitPrice;
 	}
-
-
-
 
 	public String getBookId() {
 		return bookId;
@@ -100,8 +92,5 @@ public class Book {
 	public void setCondition(String condition) {
 		this.condition = condition;
 	}
-	
-	
-	
 	
 }
