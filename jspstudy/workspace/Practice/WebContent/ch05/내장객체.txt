@@ -1,0 +1,27 @@
+ < 내장 객체 >
+  1. 특징 
+     - JSP 페이지에서 사용할 수 있도록 JSP컨테이너에 미리 정의된 객체
+     - JSP 파일이 자바소스 파일로 변환되면서 _jspService( ) 메소드 내에 자동으로 선언 및 초기화되는 변수들을 '내장 객체'라고 합니다. 
+     - JSP 페이지가 서블릿 프로그램으로 번역될 때 JSP 컨테이너가 자동으로 내장객체를 멤버 변수, 메소드 매개변수 등의 각종 참조 변수로 포함 
+   		때문에 별도의 import 없이 자유롭게 사용 가능 
+   
+  2. 종류 
+  		내장 객체		  반환유형 									 설명 
+*    1) request       javax.servlet.http.HttpServletRequest      웹 브라우저의 HTTP 요청 정보 저장 
+     2) response   	  javax.servlet.http.HttpServletResponse 	 웹 브라우저의 HTTP 응답 정보 저장 
+     3) out        	  javax.servlet.jsp.jsp.jspWriter		     JSP 페이지에 출력할 내용을 담고 있는 출력 스트림 
+*    4) session    	  javax.servlet.http.HttpSession			 웹 브라우저의 정보를 유지하기 위한 세션 정보를 저장 
+*    5) application   javax.servlet.ServletContext				 웹 애플리케이션의 콘텍스트 정보 저장
+*    6) pageContext   javax.servlet.jsp.pageContext 			 JSP 페이지의 정보를 저장 
+     7) page          javax.lang.Object						     JSP 페이지를 구현한 자바 클래스로 JSP 페이지 그 자체를 나타냄 (자바에서 자신의 클래스 this를 가리키는것과같음)
+     8) config        javax.servlet.ServletConfig				 JSP 페이지 설정 정보 저장 
+     9) exception     javax.lang.Throwable  				     JSP 페이지 예외발생 처리 
+  
+   --> 서블릿 프로그램에서 모두 _jspService() 메소드 내부에 존재 
+   
+    1) request 
+     - 메소드 
+     ㄱ. getParameter(String name)     파라미터이름이 name인 '값'을 전달받음
+     ㄴ. getParamterValues(String name)    파라미터이름이 name인 '값'을 '배열'형태로 전달 받음  --> 배열이 객체이기 때문에 없으면 null
+     ㄷ. getParameterNames()				  모든 요청 파라미터의 이름과 값을 Enumerarion 객체 타입으로 전달 
+     ㄹ. getPrarameterMap()				  모든 요청 파라미터의 이름과 값을 Map 객체 타입으올 전달 받음 
