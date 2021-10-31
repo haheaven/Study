@@ -1,0 +1,24 @@
+<내장객체>
+ 
+ 
+ 1. request 객체
+ 
+ 1)
+ 	 웹 브라우저에서 JSP 페이지로 전달되는 정보의 모임 HTTP헤더와 HTTP 바디로 구성 
+ 	 웹 컨테이너는 요청된 HTTP 메시지를 통해 HTTPServletRequest 객체를 얻어내고
+ 	   이 객체로부터 사용자의 요구사항을 얻는다. 
+
+ 2)메소드 
+  getParameter(name) : String -> 파라미터변수 Name에 저장된 값 
+  getParameterValues(name) : String[] ->파라미터 변수 name에 저장된 값을 배열로 리턴(보통 checkbox에서 사용)
+  getParameterNames() : Enumeration -> 요청에 의해 넘어오는 모든 파라미터 변수를 jav.util.Enumeration 타입으로 리턴 
+ 
+ 2. response 객체
+ 1) 
+ 	웹 브라우저로 응답할 응답 정보를 가지고 있다.
+ 2) 메소드
+ 	void setHeader(name, value)
+ 	void setContentType(type)
+	void sendRedirect(url) 
+ 
+   
