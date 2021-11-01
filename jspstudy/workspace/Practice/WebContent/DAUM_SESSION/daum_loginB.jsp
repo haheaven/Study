@@ -14,7 +14,7 @@
 				 String userId = request.getParameter("userId");
 				 String userPw = request.getParameter("userPw");
 				 String loginKeep = request.getParameter("loginKeep");
-				
+				out.println(loginKeep);        
 				 Member member = new Member();
 				 member.setUserId(userId);
 				 member.setUserPw(userPw);
@@ -27,7 +27,9 @@
 					 userMem.setUserId("heaven");
 					 userMem.setUserPw("abcd123");
 					 userMem.setUserName("하프로");
-					 
+					 out.println( userMem.getUserId());
+					 out.println( userMem.getUserPw());
+					 out.println( userMem.getUserName());
 					 
 					// 세션(브라우저 저장)원하면 로그인기억하기 체크 
 					// 닫으면 사라지기 때문에 쿠키에 저장하고 값을 받아야함 .
@@ -35,9 +37,12 @@
 						Cookie cookie1 = new Cookie("userId", userMem.getUserId());
 						cookie1.setMaxAge(60*60); // 10분간저장 
 						response.addCookie(cookie1);
+						
+						
 						Cookie cookie2 = new Cookie("userName", userMem.getUserName());
-						cookie2.setMaxAge(60*60); // 10분간저장 
+						cookie2.setMaxAge(60*60); // 10분간저장
 						response.addCookie(cookie2);
+						out.println(cookie2.getName()); 
 					} else { // 그냥 일반 브라우저에 저장하는 세션만 사용 ( 브라우저 끌시 자동로그인 안됨)
 					 	session.setAttribute("userId", userMem.getUserId());
 					 	session.setAttribute("userName", userMem.getUserName());
@@ -46,7 +51,7 @@
 					 
 				 }
 				 
-				 response.sendRedirect("daum_loginC.jsp");
+			 response.sendRedirect("daum_loginC.jsp");
 			%>
 			
 

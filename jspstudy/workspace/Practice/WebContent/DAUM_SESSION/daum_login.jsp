@@ -162,8 +162,8 @@
 		}
 		#login_btn{
 		    display: block;
-		    margin-top: 10px;
-		    margin-bottom: 10px;
+		  
+		    margin-bottom: 25px;
 		    width: 100%;
 		    height: 46px;
 		    text-align: center;
@@ -184,7 +184,7 @@
 		/* 로그인 상태유지 */
 		.login_stay{  
 		     display: inline-block;
-		     margin: 20px 0 50px 0;
+		     margin: 20px 0 0 0;
 		     height: 40px;  
 		     position: relative;
 		}
@@ -310,12 +310,13 @@
                     <input type="password" name="userPw" id="userPw" placeholder="비밀번호">
                 </div>
                 <span class="msg"></span>
-                <button id="login_btn">로그인</button>
-            </form>
+              
+           
             <div class="login_stay">
                 <label>
                     <span class="login_retain_img"></span>
                     <input type="checkbox" id="login_retain" name="loginKeep">
+                  
                     <span>로그인 상태 유지</span>
                 </label>
                 <label>
@@ -323,7 +324,9 @@
                     <span class="ip_secure_img"></span>
                 </label> 
             </div>
-    <% } else { response.sendRedirect("daum_loginC.jsp"); } %>
+              <button id="login_btn">로그인</button>
+               </form>
+   
             <div class="search_box">
                 <div class="id_search">
                     <a href="#">아이디 찾기</a>
@@ -346,7 +349,7 @@
             </div>
         </footer>
     </div>
-
+ <% } else { response.sendRedirect("daum_loginC.jsp"); } %>
 
 </body>
 </html>
