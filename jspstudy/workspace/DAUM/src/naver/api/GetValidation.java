@@ -84,7 +84,7 @@ public class GetValidation {
 		}
 		
 		
-		
+		//request.setAttribute("result", result);
 		return result;
 		
 	}

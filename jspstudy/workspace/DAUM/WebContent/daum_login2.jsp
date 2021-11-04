@@ -21,8 +21,18 @@
    	outline: none;
    	font-size:13px;
     }
-   
    </style>
+   <script>
+   	$(document).on('ready',function(){
+   	
+		
+   	
+   	});
+   	
+   
+   
+   </script>
+
 </head>
 <body>
 
@@ -47,12 +57,13 @@
         </header>
         
         <section class="login_wrapper">
-            <form action="daum_loginB.jsp" id="login_form" method="POST">
+            <form action="/DAUM/ValidationServlet" id="login_form" method="POST">
                 <div class="relogin">
                     <a href="#"><span class="relogin_img"></span>다른 방법으로 로그인</a>
                 </div>
                 <div class="login_box">
                     <input type="text" name="userId" id="userId" placeholder="아이디">
+              
                 </div>
                 <span class="msg"></span>
                 <div class="login_box">

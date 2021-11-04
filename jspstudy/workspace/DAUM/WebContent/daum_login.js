@@ -42,7 +42,7 @@
                 // 비밀번호 정규식 
                 if($(this).val()==''){
                     $(msg_err[1]).text('필수입력입니다.');
-                } else if(   regPw.test( $(this).val()) ==false   ){
+                } else if(   regPw.test( $(this).val()) == false   ){
                     $(msg_err[1]).text('잘못된 비밀번호 형식입니다.');
                 } else 
                     $(msg_err[1]).text('');
@@ -81,20 +81,20 @@
 					event.preventDefault();
 				    if (count >= 3){
 				    location.href="/DAUM/LoginServlet";
-					alert('3번 이상 맞지 않았습니다. 자동입력방지를 보고 입력칸을 적어주세요.');
- 					$("#captchaimg").css("opacity","1");
+					alert('3번 연속 틀렸습니다. 자동입력방지를 보고 입력칸을 적어주세요.');
+ 					
 					
 					event.preventDefault();
 						}
                     return false;
                 } else{
-                    alert("로그인 성공!");
+                 
                     return true;
                 }
 
 			
 
-			// count 3번틀리면 문자입력하기 
+			
 
    		  });
 			

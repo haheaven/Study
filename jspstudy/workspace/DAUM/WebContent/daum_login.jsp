@@ -80,7 +80,7 @@
 
         <footer class="footer">
             <div>
-                <a hreg="#">© Kakao Corp.</a>
+                <a href="#">© Kakao Corp.</a>
                 <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span> 
                 <a href="#">고객센터</a>
             </div>

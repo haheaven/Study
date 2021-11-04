@@ -24,18 +24,20 @@ public class ValidationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		boolean result = GetValidation.getValidation(request);
-		if (result) {
-			 out.println("<script>");
-			  out.println("alert('검증성공')");
-			  out.println("location.href='daum_loginC.jsp'");
-			  out.println("</script>");
+		boolean result = GetValidation.getValidation(request);  //ct 입력값과 실제key 비교 => true false 
+		if(result) {
+			out.println("<script>");
+			//out.println("location.href='daum_loginC.jsp'");
+		    request.getRequestDispatcher("daum_loginC.jsp").forward(request, response);
+			out.println("</script>");
 		} else {
-			 out.println("<script>");
-			  out.println("alert('검증실패')");
-			  out.println("location.href='daum_login2.jsp'");
-			  out.println("</script>");
+			out.println("<script>");
+			out.println("alert('문자를 잘못입력하셨습니다.')");
+			out.println("location.href='LoginServlet'");
+			out.println("</script>");
 		}
+		
+		
 	}
 
 	
