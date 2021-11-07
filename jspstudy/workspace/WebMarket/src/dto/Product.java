@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Product implements Serializable{
 	private static final long  serialVersionUID = -4274700572038677000L;
 	
-	private String product;		  // 상품아이디 
+	private String productId;		  // 상품아이디 
 	private String pname;  		  // 상품명 
 	private Integer unitPrice;    // 상품가격 
 	private String description;   // 상품설명 
@@ -17,16 +17,16 @@ public class Product implements Serializable{
 	public Product() {
 		super();
 	}
-	public Product(String product, String pname, Integer unitPrice) {
-		this.product = product;
+	public Product(String productId, String pname, Integer unitPrice) {
+		this.productId= productId;
 		this.pname = pname;
 		this.unitPrice = unitPrice;
 	}
-	public String getProduct() {
-		return product;
+	public String getProductId() {
+		return productId;
 	}
-	public void setProduct(String product) {
-		this.product = product;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
 	public String getPname() {
 		return pname;
