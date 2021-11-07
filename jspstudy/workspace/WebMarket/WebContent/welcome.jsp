@@ -38,6 +38,7 @@
 				SimpleDateFormat sdf = new SimpleDateFormat();
 				sdf.applyPattern("h:mm:ss a");
 				String now = sdf.format(date); */
+				response.setIntHeader("Refresh",5);
 				String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("h:mm:ss a"));
 				out.println("현재 접속 시각: "+now);
 			%>
