@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<!--  Oracle 11g Express Edition -->
+	<Resource
+		name="jdbc/oracle11g"
+		type="javax.sql.DataSource"
+		dirverClassName = "oracle.jdbc.dirver.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:xe"
+		username = "scott"
+		password= "1111"
+		maxTotal = "8"
+		maxIdle = "2"
+		maxWaitMillis = "5000"   />
+		<!--  
+		    name : Resouce 등록이름,이름은 개발자 알아서 지정 
+			type : DBCP관리하는 클래스
+			driverClassName : Oracle JDBC
+			url : Oracle DB서버 경로
+			
+		
+		
+		 -->
+
+
+
+</Context>
