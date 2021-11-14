@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="dao.astudent">
+	
+	<!--  전체리스트  -->
+	<select id="selectlist" resultType="dto.aStudent">
+		SELECT stuNo, name, grade, major, score
+		  FROM astudent
+	</select>
+	
+	<!--  등록된 학생 수 -->
+	<select id="getCount" resultType="int">
+		select count(*) from astudent
+	</select>
+	
+	<!--  학생입력 -->
+	<insert id="insert" parameterType="dto.aStudent">
+		INSERT  INTO astudent
+		VALUES(stuNo_seq.nextval, #{name}, #{grade}, #{addr}, #{email}, #{score}, #{major}, SYSDATE)
+	</insert>
+	
+	<!-- 상세보기 -->
+	<select id="selectone" resultType="dto.aStudent" parameterType="long">
+		SELECT stuNo, name, grade, major, score, addr, email, register
+		  FROM astudent
+		  WHERE stuNo=#{stuNo}
+	</select>
+	
+	<!--  수정하기 -->
+	<update id="update" parameterType="dto.aStudent">
+		UPDATE astudent 
+	       SET addr=#{addr}, email=#{email}, major=#{major}, score=#{score}
+	       WHERE stuNo=#{stuNo} 
+	</update>
+	
+	
+	<!-- 삭제하기 -->
+	<delete id="delete" parameterType="long">
+		DELETE FROM astudent 
+	       WHERE stuNo=#{stuNo} 
+	</delete>
+
+	<!-- 학년별 -->
+	<select id="selectGrade1List"  resultType="dto.aStudent">
+	  SELECT *
+	  FROM astudent 
+	  where grade=1
+	</select>
+	
+	<!-- 학년별 -->
+	<select id="selectGrade2List"  resultType="dto.aStudent">
+	  SELECT *
+	  FROM astudent 
+	  where grade=2
+	
+	</select>
+	
+	<!-- 학년별 -->
+	<select id="selectGrade3List"  resultType="dto.aStudent">
+	  SELECT *
+	  FROM astudent 
+	  where grade=3
+	</select>
+	
+</mapper>
+<!--	SELECT a.name
+	      FROM ( select name from product order by made desc)a
+	     WHERE rownum=1 -->
+
+
+
+
+
+
+

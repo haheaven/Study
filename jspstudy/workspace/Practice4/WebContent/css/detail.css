@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+  *{
+		margin : 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	h2 {
+		text-align:center;
+		margin: 40px 0;
+		color:#353535;
+	}
+	#f {
+		
+		width: 1000px;
+		height : 400px;
+		padding-top : 50px;
+		margin: 10px auto ;
+		margin-bottom: 50px;
+	}
+	table {
+		border-collapse : collapse;
+		font-size: 14px;
+	}
+	#f table td{
+		width: 120px;
+		text-align: center;
+		border:1px solid gray;
+	}
+	#f .name, #f .no { 	
+		width:70px; }
+	#f .grade_score {
+		width:20px;
+	}
+	tfoot tr{
+		border:none;
+		height: 55px;		
+	}
+	thead tr {  	height: 40px;	  }
+	input[type="text"] {
+		border:none;
+		outline:none;
+		height:28px;
+		display:inline-block;
+		margin-left: 10px;
+	}
+
+	.btn {
+		width:120px;
+		border:none;
+		cursor:pointer;
+		height: 25px;
+	}
+
+	

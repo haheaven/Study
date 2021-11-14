@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+	*{
+		margin : 0;
+		padding:0;
+		box-sizing: border-box;
+	}
+	#f {
+		border : 1px solid gray;
+		width: 900px;
+		height : 400px;
+		padding : 20px 180px;
+		margin: 10px auto ;
+		margin-bottom: 50px;
+		position: relative;
+	}
+	h2 {
+		text-align:center;
+		margin: 20px 0;
+		color:#353535;
+    }
+    h4{
+    	color:#999999;    
+    }
+    p{
+		text-align:right;
+		color:#999999;    
+		font-size: 12px;
+    }
+	.t1 {
+		display:block;
+		width: 700;
+		border-collapse : collapse;
+		font-size: 14px;
+	}
+	.t1 thead td{
+		font-weight: 400;
+		color:#999999; 	
+	}
+	.t1 td {
+		border:1px solid silver;
+		width: 140px;
+		height: 30px;
+		text-align:center;
+		color:#353535;
+	}
+	a{
+		text-decoration:none;
+		color:#353535;
+	}
+	a:hover{
+		font-weight: bold;
+	}
+	#file{
+		display: inline-block;
+		margin-top: 20px;
+		position:absolute;
+		right: 170px;
+		width: 130px;
+		height: 25px;
+		font-size: 13px;
+		border:none;
+		
+	}
+
+	/* 등록 css */
+	#f1{
+		border : 1px solid gray;
+		width: 800px;
+		height : 450px;
+		padding :60px 210px;
+		margin: 10px auto;
+	}
+	#f1 label{
+		display:inline-block;
+		width: 100px;
+		margin-bottom:5px;
+	}
+	#f1 input{
+		 display:block; 
+		 margin-bottom : 10px;	
+		 height: 29px; 
+		 width: 250px;
+		 padding-left: 10px;
+		 outline:none;
+		 border: 1px solid silver;
+	}
+	#f1 button{
+		display: inline-block;
+		margin-top: 10px;
+		width: 350px;
+		height: 30px;
+		cursor: pointer;
+		outline:none;
+		border: none;
+	}
+	#f1 button:hover{font-weight: bold; }
+	#t2{
+	    display:block;
+		width: 700;
+		border-collapse : collapse;
+		font-size: 14px;
+	
+	} 
+	#t2 tr{
+		 display:block; 
+		 margin-bottom: 10px;
+	}
+	
