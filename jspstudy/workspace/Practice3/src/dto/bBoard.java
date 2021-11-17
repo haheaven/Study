@@ -7,6 +7,7 @@ public class bBoard {
 	private String title;
 	private String writer;
 	private String content;
+	private String category;
 	private int readCount;
 	private Date register;
 	
@@ -60,6 +61,14 @@ public class bBoard {
 
 	public void setRegister(Date register) {
 		this.register = register;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	

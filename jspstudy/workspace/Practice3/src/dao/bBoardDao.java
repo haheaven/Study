@@ -47,7 +47,7 @@ public class bBoardDao {
 	}
 	
 	// 4, 상세보기 
-	public bBoard select(long idx){
+	public bBoard select(Long idx){
 		SqlSession ss = factory.openSession();
 		bBoard board = ss.selectOne("dao.bBoard.select", idx);
 		ss.close();
@@ -55,7 +55,7 @@ public class bBoardDao {
 	}
 	
 	// 5. 조회수 증가
-	public int hit(long idx){
+	public int hit(Long idx){
 		SqlSession ss = factory.openSession(false);
 		int result = ss.update("dao.bBoard.hit", idx);
 		if( result > 0) ss.commit();
@@ -72,22 +72,23 @@ public class bBoardDao {
 		return result;	
 	}
 	
+	// 7. 게시판 삭제하기 
 	public int delete(long idx) {
 		SqlSession ss = factory.openSession(false);
 		int result = ss.delete("dao.bBoard.delete", idx);
 		if( result > 0) ss.commit();
 		ss.close();
 		return result;	
+	}
+	// 8. 게시판 사용자가 쓴 부분 파일로 저장하기 
+	public List<bBoard> AdminList(){
+		SqlSession ss = factory.openSession();
+		List<bBoard> list = ss.selectList("dao.bBoard.AdminList");
+		ss.close();
+		return list;
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 } // end of class 

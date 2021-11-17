@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import common.ModelAndView;
 import dao.bBoardDao;
 
-public class deleteService implements bBoardService {
+public class DeleteService implements BBoardService {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

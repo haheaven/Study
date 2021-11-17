@@ -11,7 +11,7 @@ import common.ModelAndView;
 import dao.bBoardDao;
 import dto.bBoard;
 
-public class updateService implements bBoardService {
+public class UpdateService implements BBoardService {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

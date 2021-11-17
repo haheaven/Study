@@ -11,7 +11,7 @@
 <script>
 	$(document).ready(function(){
 		$('#update').on('click',function(){
-			if( confirm('수정화면으로 이동')){
+			if( confirm('수정이 가능합니다.')){
 				$('#reset').show();
 				$('#realupdate').show();
 				$('#delete').show();
@@ -32,12 +32,9 @@
 				        console.log(xhr.status);
 				        console.log(thrownError);
 					}
-				}); // ajax
-					
-			});//real
-				
+				}); // ajax		
+			 });//real
 			}; // if
-	
 		})	
 	})
 
@@ -46,8 +43,17 @@
 <body>
 <h2>게시판</h2>
 	<form >
-	조회수<input id="hit" type="text" name="hit" value="${readCount}" readonly>
+	
 		 <table>
+		 	<tr>
+		 	<td>조회수
+				<input id="hit" type="text" name="readCount" value="${board.readCount}" readonly>
+		 	</td>
+		 	
+		 	<td><span id="regi">등록일</span>
+		 	<input  id="register" type="text" name="register" value="${board.register}" readonly></td>
+		 	</tr>
+		 
 		 		<tr>
 					<td>글쓴이</td>
 						<td><input type="text" name="writer" value="${board.writer}" readonly>
@@ -78,7 +84,6 @@
 					</td>
 				</tr>
 		</table>
-	
 	</form>
 </body>
 </html>

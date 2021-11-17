@@ -10,12 +10,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 전체글 -->
 	<select id="selectlist" resultType="dto.bBoard">
-		SELECT idx, writer, title, content, readCount, register
+		SELECT idx, writer, title, content, category, readCount, register
 		FROM bboard
+		 ORDER BY idx DESC
 	</select>
 	
 	
-	<!--  조회수 -->
+	<!--  게시글수 -->
 	<select id="getCount" resultType="int">
 		SELECT count(*)
 		FROM bboard
@@ -24,12 +25,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--  글등록 -->
 	<insert id="insert" parameterType="dto.bBoard">
 		INSERT INTO bboard
-		VALUES(bboard_seq.nextval, #{writer}, #{title}, #{content}, 0, SYSDATE)
+		VALUES(bboard_seq.nextval, #{writer}, #{title}, #{content}, #{category}, 0, SYSDATE)
 	</insert>
 		
 	<!--  상세보기  -->
 	<select id="select" parameterType="long" resultType="dto.bBoard">
-		SELECT  idx, title, writer, content
+		SELECT  idx, title, writer, category, readCount, content, register
 		FROM bboard
 		WHERE idx=#{idx}
 	</select>
@@ -52,5 +53,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM bboard WHERE idx=#{idx}
 	</delete>
 	
+	<!-- 게시판 저장하기  -->
+	<select id="AdminList"  resultType="dto.bBoard"  >
+		SELECT idx, writer, title, content, category,register
+			FROM bboard
+			where writer NOT IN('관리자')
+	</select>
 	
 </mapper>

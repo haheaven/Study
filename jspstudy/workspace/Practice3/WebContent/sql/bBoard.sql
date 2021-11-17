@@ -4,6 +4,7 @@ create table bboard (
 	writer VARCHAR2(100),
 	title VARCHAR2(100),
 	content VARCHAR2(1000),
+	category VARCHAR2(100),
 	readCount NUMBER,
 	register DATE
 );

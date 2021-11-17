@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.ModelAndView;
 import model.InsertService;
+import model.Page;
 import model.SelectAllList;
 import model.SelectService;
-import model.bBoardService;
-import model.deleteService;
-import model.updateService;
+import model.BBoardService;
+import model.DeleteService;
+import model.UpdateService;
 
 
 @WebServlet("*.do")
@@ -35,7 +36,7 @@ public class bBoardServlet extends HttpServlet {
 		String command = requestURI.substring(contextPath.length()+1);
 		
 		ModelAndView mav = null;
-		bBoardService bs = null;
+		BBoardService bs = null;
 		switch(command) {
 		case "selectAllList.do":
 			bs = new SelectAllList();
@@ -47,10 +48,13 @@ public class bBoardServlet extends HttpServlet {
 			bs = new SelectService();
 			break;
 		case "update.do":
-			bs= new updateService();
+			bs= new UpdateService();
 			break;
 		case "delete.do":
-			bs = new deleteService();
+			bs = new DeleteService();
+			break;
+		case "page.do":
+			bs = new Page();
 			break;
 		}
 		

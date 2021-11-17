@@ -2,15 +2,24 @@ package model;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import common.ModelAndView;
 import dao.bBoardDao;
+import dto.bBoard;
 
-public class SelectAllList implements bBoardService {
+public class SelectAllList implements BBoardService {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-	//	request.setAttribute("hit", request.getParameter("hit"));
+
+		HttpSession session = request.getSession();
+		
+		bBoard board =  (bBoard)(session.getAttribute("board"));
+		// 리스트로 되돌아와서 게시글 있으면 세션삭제하고 다시 시작
+		if (session.getAttribute("board") != null) {
+			session.removeAttribute("board");
+		}
 		request.setAttribute("id", request.getParameter("writer"));
 		request.setAttribute("pwd", request.getParameter("pwd"));
 		

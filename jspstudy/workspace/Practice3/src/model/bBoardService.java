@@ -5,6 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.ModelAndView;
 
-public interface bBoardService {
+public interface BBoardService {
 	public  ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }
