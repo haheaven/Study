@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+
+<!--  namespace는 mapper의 전체 경로를 작성해 둔다.  -->
+<mapper namespace="dao.Reply">
+	
+	<!--  댓글 리스트 가져오기 -->
+	<select id="selectListReply" resultType="dto.Reply" parameterType="Long">
+		SELECT  ridx, writer, content, idx, register
+		  FROM reply
+		 WHERE IDX=#{idx}
+	</select> 
+	
+	<!--  댓글 삽입  -->
+	<insert id="insertReply" parameterType="dto.Reply">
+		INSERT INTO reply 
+		 VALUES (reply_seq.nextval, #{writer}, #{content}, #{idx}, SYSDATE)
+	</insert>
+	
+	
+</mapper>

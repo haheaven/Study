@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+
+<!--  namespace는 mapper의 전체 경로를 작성해 둔다.  -->
+<mapper namespace="dao.Member">
+	
+	<!-- 1.로그인 정보  -->
+	<select id="selectMember" parameterType="dto.Member" resultType="dto.Member">
+		SELECT MNO, ID, PW, NAME, EMAIL, PHONE, IP, BIRTH, GENDER, REGISTER
+		  FROM MEMBER
+		 WHERE 1=1
+		 <if test="id != null">AND  ID=#{id}</if> 
+		 <if test="pw != null">AND  PW=#{pw}</if> 
+	</select>
+	
+	<!--  2. 로그인 기록 남기기 -->
+	<select id="loginLog" parameterType="String">
+		INSERT INTO MEMBER_LOG
+        VALUES (MEMBER_LOG_SEQ.NEXTVAL, #{id}, SYSDATE)
+	</select>
+	
+		<!-- 3. 회원가입 -->
+
+	
+</mapper>
