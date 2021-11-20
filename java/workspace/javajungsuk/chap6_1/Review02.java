@@ -7,7 +7,7 @@ public class Review02 {
 		
 	//	1)
 		Data2 d = new Data2(); 				  // d객체 주소 임의 : 0x100 내부에 x 존재 
-		d.x = 10;          					  // x = 10
+		d.x = 10;          				  // x = 10
 		System.out.println("main() : x = " + d.x);  // 10
 	// 2)-1	
 		change(d);   //  주소를 매개변수로 
@@ -20,7 +20,7 @@ public class Review02 {
 	
 	// 2)-2
 	static void change(Data2 d) {  				// change(참조형매개변수=>0x100)
-		d.x = 1000;   							//  0x100(d) 있는 x = 1000
+		d.x = 1000;   					//  0x100(d) 있는 x = 1000
 		System.out.println("change() :x = " + d.x);   //1000
 	}
 	
