@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+	*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	}
+	h3{
+		margin-top: 20px;
+		text-align:center;
+	}
+	.login_box{
+		width:400px;
+		border : 1px solid silver;
+		height : 150px;
+		padding: 40px;
+		padding-left: 70px;
+		margin: 10px auto;
+	}
+	label {
+		display: inline-block;
+		width : 70px;
+	}
+	#writer {
+		display: inline-block;
+		margin-bottom:10px;
+	}
+	.login_box input{
+		width: 150px;
+		height: 25px;
+		outline: none;
+	}	
+	.btn {
+	    width:300px;
+		margin: 10px auto;
+		text-align:center;
+	}
+	button, #move_btn{
+		cursor: pointer;
+		width: 120px;
+	}

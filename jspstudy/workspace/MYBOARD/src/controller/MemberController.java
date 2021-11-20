@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.ModelAndView;
+import service.member.MemberJoinService;
 import service.member.MemberLoginService;
 import service.member.MemberService;
 
@@ -37,6 +38,13 @@ public class MemberController extends HttpServlet {
 		case "login.member":   // 로그인 - 세션저장하기
 			ms = new MemberLoginService();
 			break;
+		case "joinForm.member":
+			mav = new ModelAndView("views/join.jsp", false);
+			break;
+		case "join.member":
+			ms = new MemberJoinService();
+			break;
+	
 		}
 		
 		

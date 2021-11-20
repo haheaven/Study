@@ -23,7 +23,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         VALUES (MEMBER_LOG_SEQ.NEXTVAL, #{id}, SYSDATE)
 	</select>
 	
-		<!-- 3. 회원가입 -->
+	<!-- 3. 회원가입 -->
+	<insert id="join" parameterType="dto.Member">
+		INSERT INTO MEMBER 
+		VALUES (MEMBER_SEQ.NEXTVAL, #{id}, #{pw}, #{name}, #{email},#{phone}, #{birth}, #{gender}, SYSDATE)
+	</insert>
 
 	
 </mapper>

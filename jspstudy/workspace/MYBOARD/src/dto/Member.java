@@ -8,10 +8,10 @@ public class Member {
 	private String pw;
 	private String name;
 	private String email;
-	private String ip;
 	private String birth;
 	private String gender;
 	private Date register;
+	private String phone;
 	
 	
 	public Member() {
@@ -69,14 +69,7 @@ public class Member {
 	}
 
 
-	public String getIp() {
-		return ip;
-	}
 
-
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
 
 
 	public String getBirth() {
@@ -109,10 +102,22 @@ public class Member {
 	}
 
 
+
+
 	@Override
 	public String toString() {
-		return "Member [mNo=" + mNo + ", id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", ip=" + ip
-				+ ", birth=" + birth + ", gender=" + gender + ", register=" + register + "]";
+		return "Member [mNo=" + mNo + ", id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", birth="
+				+ birth + ", gender=" + gender + ", register=" + register + ", phone=" + phone + "]";
+	}
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	

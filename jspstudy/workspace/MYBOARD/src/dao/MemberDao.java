@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import dto.Member;
 import mybatis.config.DBService;
+import oracle.net.aso.f;
 
 public class MemberDao {
 private SqlSessionFactory factory;
@@ -38,6 +39,14 @@ private SqlSessionFactory factory;
 		return result;
 	}
 	
+	// 회원가입하기 
+	public int join(Member member) {
+		SqlSession ss= factory.openSession(false);
+		int result = ss.insert("dao.Member.join", member);
+		if(result>0) ss.commit();
+		ss.close();
+		return result;
+	}
 	
 	
 	
