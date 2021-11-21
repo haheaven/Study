@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.ModelAndView;
+import service.member.AdminBoardList;
 import service.member.MemberJoinService;
 import service.member.MemberLoginService;
 import service.member.MemberService;
@@ -21,8 +22,6 @@ public class MemberController extends HttpServlet {
         super();
      
     }
-
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=utf-8");
 		request.setCharacterEncoding("utf-8");
@@ -43,6 +42,9 @@ public class MemberController extends HttpServlet {
 			break;
 		case "join.member":
 			ms = new MemberJoinService();
+			break;
+		case "selectAdminList.member":
+			ms = new AdminBoardList();
 			break;
 	
 		}

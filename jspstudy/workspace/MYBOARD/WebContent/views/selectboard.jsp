@@ -19,7 +19,8 @@
 	// 게시글 수정 
 	function fnUpdateInsertBoard() {
 		$('#update').on('click',function(){
-			if( confirm('수정이 가능합니다.')){
+		let update_check =  prompt('비밀번호를 입력해주세요.');
+			if( update_check == $('#pw').val() ){
 				$('#reset').show();
 				$('#realupdate').show();
 				$('#delete').show();
@@ -42,7 +43,10 @@
 					}
 				}); // ajax		
 			 });//real
-			}; // if
+			} // if
+			else{
+				alert('비밀번호가 일치하지 않습니다.');
+			}
 		})		
 	}
 	
@@ -126,8 +130,9 @@
 		 
 		 		<tr>
 					<td>글쓴이</td>
-						<td><input type="text" name="writer" value="${board.writer}" readonly>
+						<td><input type="text" name="writer" value="${user.id}" readonly>
 						<input type="hidden" name="idx" value="${board.idx}">
+						<input type="hidden" id="pw" value="${user.pw}">
 						</td>				
 				</tr>
 				<tr>
@@ -179,7 +184,7 @@
 	<div id="comment">
 	
 		<form id="f1" method="post">
-			<input type="text" placeholder="작성자" name="writer" id="comment_writer" style="width:70px;">
+			<input type="text" placeholder="작성자" name="writer" id="comment_writer" style="width:70px;" value="${user.id }">
 		    <input type="text" placeholder="댓글을 입력주세요" name="content" id="comment_content" >
 			<input type="hidden" name="idx" value="${board.idx}" id="comment_idx">
 			<button>입력</button>

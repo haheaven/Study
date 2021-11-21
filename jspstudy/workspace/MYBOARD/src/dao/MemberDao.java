@@ -48,9 +48,21 @@ private SqlSessionFactory factory;
 		return result;
 	}
 	
+	// 로그인 가능 회원 있는지 확인하기 
+		public Member selectAdmin(Member admin) {
+			SqlSession ss = factory.openSession();
+			Member user = ss.selectOne("dao.Member.selectAdmin", admin);
+			ss.close();
+			return user;
+		}
 	
-	
-	
+	// 회원검색 
+		public Member searchId(String id) {
+			SqlSession ss = factory.openSession();
+			Member user = ss.selectOne("dao.Member.searchId", id);
+			ss.close();
+			return user;
+		}
 	
 	
 	

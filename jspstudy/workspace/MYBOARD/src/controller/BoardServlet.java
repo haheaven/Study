@@ -43,19 +43,20 @@ public class BoardServlet extends HttpServlet {
 		
 		
 		switch(command) {
-		case "selectAllList.do":             // 게시판 전체리스트
+		
+		case "selectAllList.do":             // Q&A 전체리스트
 			bs = new ListBoardService();
 			break;
-		case "insert.do":                    // 게시판 등록
+		case "insert.do":                    // Q&A 등록
 			bs = new InsertBoardService();
 			break;
-		case "select.do":                   // 게시판 상세
+		case "select.do":                   // Q&A 상세
 			bs = new SelectBoardService();
 			break;
-		case "update.do":                  // 게시판 수정
+		case "update.do":                  // Q&A 수정
 			bs = new UpdateBoardService();
 			break;
-		case "delete.do":                  // 게시판 삭제
+		case "delete.do":                  // Q&A 삭제
 			bs = new DeleteBoardService();
 			break;
 		case "listReply.do":             // 댓글리스트
@@ -64,6 +65,7 @@ public class BoardServlet extends HttpServlet {
 		case "insertReply.do":           // 댓글삽입
 			bs = new ReplyInsertService();
 			break;
+			
 		}
 		
 		if( bs != null ) {

@@ -98,15 +98,9 @@
 				</tr>	
 				<tr>
 					<td>글쓴이</td>
-					<c:if test='${empty id and empty pwd}'>
-						<td><input type="text" name="writer" ></td>
-					</c:if>
-					<c:if test="${not empty id and empty pwd}">
-						<td><input type="text" name="writer" ></td>
-					</c:if>
-					<c:if test="${not empty id and not empty pwd}">
+	
 						<td><input type="text" name="writer" value="${user.id}" readonly></td>
-					</c:if>
+	
 				</tr>
 				<tr>
 					<td>내용</td>
