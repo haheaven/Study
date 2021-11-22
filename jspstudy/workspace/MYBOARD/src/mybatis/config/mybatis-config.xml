@@ -21,6 +21,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <mapper resource="dao/Board.xml"/>
         <mapper resource="dao/Reply.xml"/>
         <mapper resource="dao/Member.xml"/>
+        <mapper resource="dao/QnA.xml"/>
+        <mapper resource="dao/QnAReply.xml"/>
        
 	</mappers>
 	

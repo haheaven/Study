@@ -1,6 +1,7 @@
 package service.member;
 
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,10 @@ public class MemberLoginService implements MemberService {
 		member.setId(id);
 		member.setPw(pw);
 		
+		Logger logger = Logger.getLogger(MemberLoginService.class.getCanonicalName());
+		logger.info(member.toString());
+		
+		
 		Member user = MemberDao.getInstance().selectMember(member);
 		
 		// 일치회원 있으면 세션 저장 하기 
@@ -31,7 +36,7 @@ public class MemberLoginService implements MemberService {
 			// 로그인 기록 남기기..!!!
 			MemberDao.getInstance().loginLog(id);
 			
-			return new ModelAndView("index.jsp", false);
+			return new ModelAndView("index.jsp", true);
 			
 		}
 		// 일치하는 회원 없으면 
@@ -45,8 +50,6 @@ public class MemberLoginService implements MemberService {
 			return null;
 		}
 		
-		
-	
 	}
 
 }

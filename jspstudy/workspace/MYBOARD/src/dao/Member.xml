@@ -12,9 +12,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectMember" parameterType="dto.Member" resultType="dto.Member">
 		SELECT MNO, ID, PW, NAME, EMAIL, PHONE, BIRTH, GENDER, REGISTER
 		  FROM MEMBER
-		 WHERE 1=1
+		WHERE 1=1
 		 <if test="id != null">AND  ID=#{id}</if> 
-		 <if test="pw != null">AND  PW=#{pw}</if> 
+		 <if test="pw != null">AND  PW=#{pw}</if>  
 	</select>
 	
 	<!--  2. 로그인 기록 남기기 -->
@@ -28,11 +28,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO MEMBER 
 		VALUES (MEMBER_SEQ.NEXTVAL, #{id}, #{pw}, #{name}, #{email},#{phone}, #{birth}, #{gender}, SYSDATE)
 	</insert>
+ 
   <!-- 아이디 조회  -->
 	<select id="searchId" 	parameterType="String" resultType="dto.Member">
 		select id, pw, name
 		 from member
 		 where id=#{id} 
 	</select>
+		
+		
+		
 		
 </mapper>

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,19 +9,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.ModelAndView;
-import service.member.AdminBoardList;
-import service.member.MemberIdDoubleCheck;
-import service.member.MemberJoinService;
-import service.member.MemberLoginService;
-import service.member.MemberLogoutService;
-import service.member.MemberService;
+import service.QnAreply.QnAReplyInsertService;
+import service.QnAreply.QnAReplyListService;
+import service.qna.DeleteQnAService;
+import service.qna.InsertQnAService;
+import service.qna.ListQnAService;
+import service.qna.QnAService;
+import service.qna.SelectQnAService;
+import service.qna.UpdateQnAService;
 
 
-@WebServlet("*.member")
-public class MemberController extends HttpServlet {
+@WebServlet("*.qna")
+public class QnAController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    public MemberController() {
+    public QnAController() {
         super();
      
     }
@@ -33,35 +36,38 @@ public class MemberController extends HttpServlet {
 		String command = requestURI.substring(contextPath.length()+1);
 		
 		ModelAndView mav = null;
-		MemberService ms = null;
+		QnAService service = null;
 		
 		switch(command) {		
-		case "login.member":   // 로그인 - 세션저장하기
-			ms = new MemberLoginService();
+		case "selectAllList.qna":   // 로그인 - 세션저장하기
+			service = new ListQnAService();
 			break;
-		case "joinForm.member":
-			mav = new ModelAndView("views/join.jsp", false);
+		case "insert.qna":                    // Q&A 등록
+			service = new InsertQnAService();
 			break;
-		case "join.member":
-			ms = new MemberJoinService();
+		case "select.qna":                   // Q&A 상세
+			service = new SelectQnAService();
 			break;
-		case "idCheck.member":
-			ms = new MemberIdDoubleCheck();
+		case "update.qna":                  // Q&A 수정
+			service = new UpdateQnAService();
 			break;
-		case "selectAdminList.member":
-			ms = new AdminBoardList();
+		case "delete.qna":                  // Q&A 삭제
+			service = new DeleteQnAService();
 			break;
-		case "logout.member":
-			ms = new MemberLogoutService();
+		case "listQnAReply.qna":             // 댓글리스트
+			service = new QnAReplyListService();
+			break;
+		case "insertReply.qna":           // 댓글삽입
+			service = new QnAReplyInsertService();
 			break;
 	
 		}
 		
 		
 		
-		if( ms != null ) {
+		if( service != null) {
 			try {
-				mav = ms.execute(request, response);
+				mav = service.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -74,13 +80,6 @@ public class MemberController extends HttpServlet {
 		} else {
 			request.getRequestDispatcher(mav.getView()).forward(request, response);
 		}
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

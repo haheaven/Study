@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+
+<!--  namespace는 mapper의 전체 경로를 작성해 둔다.  -->
+<mapper namespace="dao.QnA">
+	
+	<!-- 전체글 -->
+	<select id="selectlist" resultType="dto.QnA">
+		SELECT idx, writer, title, content, category, readCount, register
+		FROM qna
+		 ORDER BY idx DESC
+	</select>
+	
+	
+	<!--  게시글수 -->
+	<select id="getCount" resultType="int">
+		SELECT count(*)
+		FROM qna
+	</select>
+	
+	<!--  글등록 -->
+	<insert id="insert" parameterType="dto.QnA">
+		INSERT INTO qna
+		VALUES(qna_seq.nextval, #{writer}, #{title}, #{content}, #{category}, 0, SYSDATE)
+	</insert>
+		
+	<!--  상세보기  -->
+	<select id="select" parameterType="long" resultType="dto.QnA">
+		SELECT  idx, title, writer, category, readCount, content, register
+		FROM qna
+		WHERE idx=#{idx}
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="hit" parameterType="long">
+		UPDATE qna SET readCount=readCount+1 
+		WHERE idx=#{idx}
+	</update>
+	
+	<!-- 게시판 수정하기 -->
+	<update id="updateQnA" parameterType="dto.QnA">
+		UPDATE qna
+		   SET title=#{title}, content=#{content}
+		  WHERE idx=#{idx}
+	</update>
+	
+	<!-- 게시판 삭제하기 -->
+	<delete id="delete" parameterType="long">
+		DELETE FROM qna WHERE idx=#{idx}
+	</delete>
+	
+	<!-- 게시판 저장하기  -->
+	<select id="AdminList"  resultType="dto.QnA"  >
+		SELECT idx, writer, title, content, category,register
+			FROM qna
+			where writer NOT IN('관리자')
+	</select>
+	
+
+</mapper>
