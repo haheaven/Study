@@ -15,20 +15,94 @@
 	width:50px;
 		display: inline-block;
 	}
+ 	.red_msg {
+ 		color : red;
+ 		font-size : 12px;
+ 	}
+	
+	
 	
 </style>
  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		fnCheckSubmit();             // 모든 함수 확인 후 서브밋넘기기
 		fnbirth();                     // 생년월일 삽입
+		
 		fnIdCheck();				 
 		fnPwCheck();				   
 		fnPwDoubleCheck();
 		fnNameCheck();
 		fnEmailCheck();
 		fnPhoneCheck();
-		fnCheckSubmit();             // 모든 함수 확인 후 서브밋넘기기
+		fnResetBtn();
 	}); 
+	
+	// 서브밋
+	 function  fnCheckSubmit(){
+	    $('#join_form').on('submit',function(event){
+	      if( confirm('가입하시겠습니까?') == false){
+	    	  event.preventDefault(); 
+	          return false;
+	      } else if (  fnIdCheck()==false ) {
+	            event.preventDefault();  
+	            return false;    
+           } else if (  fnPwCheck()==false ) {
+                event.preventDefault(); 
+                return false;  
+            } else if (  fnPwDoubleCheck()==false ) {
+                event.preventDefault();  
+                return false;  
+            } else if (  fnNameCheck()==false ) {
+                event.preventDefault();  
+                return false;  
+            } else if (  fnEmailCheck()==false ) {
+                event.preventDefault();
+                return false;  
+            }else if (  fnPhoneCheck()==false ) {
+               event.preventDefault(); 
+               return false;  
+            } else 
+            	return true;
+            
+	      
+	        });
+	    } //   function fnCheckSubmit()
+	    
+	
+	
+	// 아이디 체크
+<%--	function fnIdDoubleCheck(){
+		let idDouble = false;
+			$("#id").on('keyup',function(){
+	
+				$.ajax({
+					url : 'idCheck.member',
+					type : 'post',
+					data : 'id=' + $('#id').val(),
+					dataType: 'json',               // 받아올 데이터 타입
+					success : function(resData){
+						 if( resData.result == true ){
+							 $('#id_check').text('사용 가능한 아이디');
+							 $('#id_check').removeClass('red_msg');
+							 idDouble = true;
+						 }else {
+							 $('#id_check').text('이미 사용중인 아이디');
+							 $('#id_check').addClass('red_msg');
+							 idDouble = false;
+						 }
+					},
+					error : function(xhr, ajaxOptions, thrownError) {
+				       alert(xhr.responseText);
+				//		console.log(xhr.status);
+				  //      console.log(thrownError);
+					}
+					
+				}) // ajax
+			}); // id
+				 return idDouble;
+	} // fnIdDoubleCheck   --%>
+	
 
 	// 생년월일 삽입
 	function fnbirth(){
@@ -53,7 +127,6 @@
 		 }
 		  $('#day').html(day);	 
 	}
-	
  
     // 아이디
      let regId = /^[a-zA-Z0-9_-]{4,}$/;
@@ -69,19 +142,50 @@
     function fnIdCheck(){   
         let id_result = false;
         $('#id').on('blur',function(){
-            if ( regId.test($('#id').val() )  ){
-                $('#id_check').text('');
-                id_result = true;
-            } else if ( $('#id').val() == '' ){
+            if ( $('#id').val() == '' ){
                 $('#id_check').text('입력 필수입니다.');
+                $('#id_check').addClass('red_msg');
                 id_result = false;
             }else if( regId.test( $('#id').val() ) == false  ) {
                 $('#id_check').text("아이디는 소문자/숫자 4자 이상 사용 가능합니다.");
+                $('#id_check').addClass('red_msg');
                 id_result = false;
+            } else if ( regId.test($('#id').val() )  ){
+                $('#id_check').text('');
+                $('#id_check').removeClass('red_msg');
+                id_result = true;
             }
-            console.log(id_result);
-            return id_result;	 
-            })
+        }) // blur
+            
+            
+            $("#id").on('keyup blur',function(){
+            	
+				$.ajax({
+					url : 'idCheck.member',
+					type : 'post',
+					data : 'id=' + $('#id').val(),
+					dataType: 'json',               // 받아올 데이터 타입
+					success : function(resData){
+						 if( resData.result == true ){
+							 $('#id_check').text('사용 가능한 아이디');
+							 $('#id_check').removeClass('red_msg');
+							 id_result = true;
+						 }else {
+							 $('#id_check').text('이미 사용중인 아이디');
+							 $('#id_check').addClass('red_msg');
+							 id_result = false;
+						 }
+					},
+					error : function(xhr, ajaxOptions, thrownError) {
+				       alert(xhr.responseText);
+				//		console.log(xhr.status);
+				  //      console.log(thrownError);
+					}
+					
+				}) // ajax
+				 console.log("id: "+id_result);
+				  return id_result;	 
+			}); // id
            
     } // fnId
         
@@ -92,18 +196,22 @@
          $('#pw').on('blur keyup', function(){
             if( regPwd.test( $("#pw").val())){    
                 $("#pw_check").text("사용가능한 비밀번호입니다.");
+                $('#pw_check').removeClass('red_msg');
                 pw_result = true;
-            } else if (    $('#pw').val().length == 0){
+            } else if (    $('#pw').val() == '' ){
                 $("#pw_check").text('입력은 필수입니다.') 
+                $('#pw_check').addClass('red_msg');
                 pw_result = false;
             }    else {
                 $("#pw_check").text("비밀번호는 8~20자의 영문 대/소문자, 숫자, 특수문자 등 3종류 이상으로 조합해주세요.");
+                $('#pw_check').addClass('red_msg');
                 pw_result = false;
             }
-            console.log(pw_result);
+           
+         console.log("pw: "+pw_result);
             return pw_result;
          }); 
-         
+      
       } // fnPwCheck
       
       
@@ -114,31 +222,36 @@
           $('#pwCheck').on('blur keyup', function(){     
                 if($('#pw').val() !=  $("#pwCheck").val() ){
                     $("#pw_doubleCheck").text(  '비밀번호가 일치하지 않습니다.');
+                    $('#pw_doubleCheck').addClass('red_msg');
                     pw_double_result = false;
                 } else{
                     $("#pw_doubleCheck").text(''); 
+                    $('#pw_doubleCheck').removeClass('red_msg');
                     pw_double_result = true;
-                } 
-                console.log(pw_double_result);
-                return pw_double_result;
+                }  
+          console.log("pw2 : "+pw_double_result);
+          return pw_double_result;
             });
-        
       }
-          // 이름 정규식
+          
+      // 이름 정규식
         function fnNameCheck() {  
             let name_result = false;
            $('#name').on('blur', function(){
                if( regName.test( $(this).val())){    
                  $('#name_check').text('');
+                 $('#name_check').removeClass('red_msg');
                  name_result = true;
                } else if (  $('#name').val() == '' ){
                    $('#name_check').text('이름은 필수입니다.');
+                   $('#name_check').addClass('red_msg');
                    name_result = false;
                }  else if( regName.test( $(this).val()) == false){    
                    $('#name_check').text('잘못된 이름 형식입니다.'); 
+                   $('#name_check').addClass('red_msg');
                    name_result = false;
                }
-               console.log(name_result);
+           console.log(name_result);
                return name_result;
            });
          
@@ -150,15 +263,16 @@
          $('#email').on('blur', function(){
                   if( regEmail.test( $('#email').val())){    
                       $('#email_check').text('');
+                      $('#email_check').removeClass('red_msg');
                       email_result = true;
                    } else{
                        $('#email_check').text('잘못된 이메일 형식입니다.');
+                       $('#email_check').addClass('red_msg');
                        email_result = false;
                   }
-                  console.log(email_result);
+         console.log(email_result);
                   return email_result;
            });
-      
          }
      
           // 핸드폰
@@ -167,54 +281,33 @@
            $('#phone').on('blur', function(){
                if( regPhone.test( $('#phone').val())){    
                    $('#phone_check').text('');
+                   $('#phone_check').removeClass('red_msg');
                    phone_result = true;
                } else if ($('#phone').val() == '' ){
                    $('#phone_check').text('핸드폰번호는 필수입니다.');
+                   $('#phone_check').addClass('red_msg');
                    phone_result = false;
                } else {
                    $('#phone_check').text('잘못된 형식입니다.');
+                   $('#phone_check').addClass('red_msg');
                    phone_result = false;
                }
-               console.log(phone_result);
                return phone_result;
            });
-           
-          
     }  // fnPhone
     
-// 5. 서브밋
-   function  fnCheckSubmit(){
-       $('#join_form').on('submit',function(event){
-      if( confirm('가입하시겠습니까?') == false){
-    	  event.preventDefault(); 
-          return false;
-      } else {
-       		if (  fnIdCheck()==false ) {
-            event.preventDefault();  
-            return false;   
-           } else if (  fnPwCheck()==false ) {
-                event.preventDefault();   
-            } else if (  fnPwDoubleCheck()==false ) {
-                event.preventDefault();  
-            } else if (  fnNameCheck()==false ) {
-                event.preventDefault();  
-            } else if (  fnEmailCheck()==false ) {
-                event.preventDefault(); 
-            }else if (  fnPhoneCheck()==false ) {
-               event.preventDefault(); 
-            }
-      }
- 
-        return true;              
-        });
-            
-    } //   function fnCheckSubmit()
-    
-	
-	
+  // reset_btn 클릭시 msg 없애기
+  function fnResetBtn(){
+    $('#reset_btn').on('click',function(){
+    	$('#id_check').text('');
+    	$('#pw_check').text('');
+    	$('#pw_double_check').text('');
+    	$('#name_check').text('');
+    	$('#email_check').text('');
+    	$('#phone_check').text('');
+    })
+   }
 </script>
-
-
 </head>
 <body>
    <h2>회원가입 페이지</h2>
@@ -255,13 +348,13 @@
 		 </select>
 		<div>		
 		 <span id="gender_box">성별</span>
-		  <input type="radio" name="gender" value="f" id="female">
+		  <input type="radio" name="gender" value="f" id="female" checked>
                         <label id="f" for="female">여성</label>
                         <input type="radio" name="gender" value="m" id="male">
                         <label id="m"  for="male">남성</label>
         </div>
         <button>회원가입</button>                 
-        <input type="reset" value="다시작성">                
+        <input type="reset" value="다시작성" id="reset_btn">                
                         
 	</form>
 

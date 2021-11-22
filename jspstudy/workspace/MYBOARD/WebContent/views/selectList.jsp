@@ -35,7 +35,7 @@
 	</script>
 </head>
 <body>
-	<h2 id="board">게시판</h2>
+	<h2 id="board">공지사항</h2>
 	
 	<c:if test="${not empty id and not empty pwd}">
 		<h3 id="user_id">${user.id}님 반갑습니다.</h3>
@@ -72,50 +72,62 @@
 						</tr>
 					</c:forEach>
 				</c:if>
+				
 			</tbody>
+			<tfoot>	
+				<tr>
+					<td colspan="5">
+						  <input type="button" value="HOME" onclick="location.href='index.jsp'">
+				    </td>
+				</tr>
+			</tfoot>
+			
 		</table>
+		<c:if test="${user.id == 'admin'}">
 			 <input type="button" value="글등록" id="insert_btn" id="insert_btn"><br>
+	    </c:if>
 	</form>
-	
-	<h2>새글등록</h2>
-	<form id="f1"  method='post'>
-		<table class="bInsert">
-				<tr>
-					<td>카테고리</td>
-					<td id="td">
-					
-						<select name="category" id="category" >
-							<option value="배송">배송</option>
-							<option value="교환">교환</option>
-							<option value="환불">환불</option>
-							<option value="기타">기타</option>
-						</select>
-					</td>
-				</tr>	
-				<tr>
-					<td>제목</td>
-					<td><input type="text" name="title" id="title"></td>
-				</tr>	
-				<tr>
-					<td>글쓴이</td>
-	
-						<td><input type="text" name="writer" value="${user.id}" readonly></td>
-	
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td><textarea name="content" cols="65" rows="14"> </textarea></td>
-				</tr>
-				<tr>
-					<td colspan="3" class="btn_td">
-					<!-- input인 경우엔 ajax에서 post설정만해도 주소창에정보가
-					표시되지 않지만 폼-submit인 경우엔 폼에도 post처리를 해야한ㄷ. -->
-						<button id="insert_btn">등록</button>
-						<input  id="reset" type="reset" value="다시 작성">
-						<input  id="go_login"  type="button" value="로그인하러 가기" onclick="location.href='index.jsp'">
-					</td>
-				</tr>
-		</table>
-	</form>
+	<c:if test="${user.id == 'admin'}">
+		<h2>새글등록</h2>
+		<form id="f1"  method='post'>
+			<table class="bInsert">
+					<tr>
+						<td>카테고리</td>
+						<td id="td">
+						
+							<select name="category" id="category" >
+								<option value="배송">배송</option>
+								<option value="교환">교환</option>
+								<option value="환불">환불</option>
+								<option value="기타">기타</option>
+							</select>
+						</td>
+					</tr>	
+					<tr>
+						<td>제목</td>
+						<td><input type="text" name="title" id="title"></td>
+					</tr>	
+					<tr>
+						<td>글쓴이</td>
+		
+							<td><input type="text" name="writer" value="${user.id}" readonly></td>
+		
+					</tr>
+					<tr>
+						<td>내용</td>
+						<td><textarea name="content" cols="65" rows="14"> </textarea></td>
+					</tr>
+					<tr>
+						<td colspan="3" class="btn_td">
+						<!-- input인 경우엔 ajax에서 post설정만해도 주소창에정보가
+						표시되지 않지만 폼-submit인 경우엔 폼에도 post처리를 해야한ㄷ. -->
+							<button id="insert_btn">등록</button>
+							<input  id="reset" type="reset" value="다시 작성">
+							<input  id="go_login"  type="button" value="로그아웃하러 가기" onclick="location.href='logout.member'">
+						</td>
+					</tr>
+			</table>
+		</form>
+	  </c:if>
 </body>
 </html>

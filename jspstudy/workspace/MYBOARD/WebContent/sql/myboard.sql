@@ -1,5 +1,17 @@
 DROP TABLE reply;
+DROP TABLE qnaReply;
+drop table qna;
 drop table board;
+
+create table qna (
+	idx NUMBER PRIMARY KEY,
+	writer VARCHAR2(100),
+	title VARCHAR2(100),
+	content VARCHAR2(1000),
+	category VARCHAR2(100),
+	readCount NUMBER,
+	register DATE
+);
 
 create table board (
 	idx NUMBER PRIMARY KEY,
@@ -11,7 +23,12 @@ create table board (
 	register DATE
 );
 
+
+
+DROP SEQUENCE qna_seq;
 DROP SEQUENCE board_seq;
+
+CREATE SEQUENCE qna_seq NOCACHE;
 CREATE SEQUENCE board_seq NOCACHE;
 
 create table reply (
@@ -22,11 +39,26 @@ create table reply (
 	register DATE
 );
 
+create table qnaReply (
+	ridx 	NUMBER PRIMARY KEY,
+	writer  VARCHAR2(100),
+	content VARCHAR2(2000),
+	idx		NUMBER,
+	register DATE
+);
+
 DROP SEQUENCE reply_seq;
 CREATE SEQUENCE reply_seq NOCACHE;
 
+DROP SEQUENCE qnaReply_seq;
+CREATE SEQUENCE qnaReply_seq NOCACHE;
+
 /* 외래키 */
+ALTER TABLE qnaReply ADD CONSTRAINT qnaReply_qna_fk FOREIGN KEY(idx) REFERENCES qna(idx) ON DELETE CASCADE;
 ALTER TABLE reply ADD CONSTRAINT reply_board_fk FOREIGN KEY(idx) REFERENCES board(idx) ON DELETE CASCADE;
+
+
+
 
 /* 회원 테이블 */
 DROP TABLE MEMBER_LOG;
@@ -52,7 +84,7 @@ CREATE TABLE MEMBER_LOG
 	/* 로그인일시 */  LOGIN	  DATE
 );
 ALTER TABLE MEMBER_LOG ADD CONSTRAINT MEMBER_LOG_MEMBER_FK 
-   FOREIGN KEY(ID) REFERENCES MEMBER(ID) ON DELETE CASCADE;
+   FOREIGN KEY(ID) REFERENCES MEMBER(ID) ON DELETE CASCADE;    /* 탈퇴하면 로그 자동 삭제 */
 
 DROP SEQUENCE MEMBER_SEQ;
 DROP SEQUENCE MEMBER_LOG_SEQ;
