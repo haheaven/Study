@@ -13,6 +13,7 @@ import common.ModelAndView;
 import service.board.DeleteBoardService;
 import service.board.InsertBoardService;
 import service.board.ListBoardService;
+import service.board.SearchBoardSerivce;
 import service.board.SelectBoardService;
 import service.board.UpdateBoardService;
 import service.reply.ReplyInsertService;
@@ -44,19 +45,19 @@ public class BoardServlet extends HttpServlet {
 		
 		switch(command) {
 		
-		case "selectAllList.do":             // Q&A 전체리스트
+		case "selectAllList.do":             // 공지사항 전체리스트
 			bs = new ListBoardService();
 			break;
-		case "insert.do":                    // Q&A 등록
+		case "insert.do":                    // 공지사항&A 등록
 			bs = new InsertBoardService();
 			break;
-		case "select.do":                   // Q&A 상세
+		case "select.do":                   // 공지사항 상세
 			bs = new SelectBoardService();
 			break;
-		case "update.do":                  // Q&A 수정
+		case "update.do":                  // 공지사항 수정
 			bs = new UpdateBoardService();
 			break;
-		case "delete.do":                  // Q&A 삭제
+		case "delete.do":                  // 공지사항삭제
 			bs = new DeleteBoardService();
 			break;
 		case "listReply.do":             // 댓글리스트
@@ -65,7 +66,14 @@ public class BoardServlet extends HttpServlet {
 		case "insertReply.do":           // 댓글삽입
 			bs = new ReplyInsertService();
 			break;
-			
+		case "index.do":
+			mav = new ModelAndView("index.jsp", false);
+			break;
+		case "search.do":               // 검색 서비스
+			bs = new SearchBoardSerivce();
+			break;
+		
+		
 		}
 		
 		if( bs != null ) {

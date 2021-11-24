@@ -67,6 +67,12 @@ public class Board {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	@Override
+	public String toString() {
+		return "Board [idx=" + idx + ", title=" + title + ", writer=" + writer + ", content=" + content + ", category="
+				+ category + ", readCount=" + readCount + ", register=" + register + "]";
+	}
 	
 	
 	

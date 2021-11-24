@@ -7,7 +7,7 @@
 			box-sizing: border-box;
 			
 			}	
-    	h2, #user_id{
+    	h2, #user_id, h3{
 			text-align:center;
 			margin-top:20px;
     	}
@@ -15,14 +15,14 @@
 			width:700px;
 			margin: 10px auto;
 			padding-left:20px;
-			margin-bottom: 50px;
+			margin-bottom: 20px;
 		}
 		#count{ 
 			display:inline-block;
 			width: 630px;
 			text-align: right;
 		}
-		#insert_btn {
+		#insert_btn, #home_btn {
 			width:100px;
 			cursor:pointer;
 			display:block;
@@ -54,7 +54,7 @@
 		#a_link:hover{	font-weight:bold;	}
 		#f1{
 			width:700px;
-			margin: 10px auto;
+			margin: 30px auto;
 			padding-left:20px;
 			margin-bottom: 50px;
 		}

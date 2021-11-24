@@ -9,26 +9,43 @@
 <style>
 	label, #gender_box {
 		display: inline-block;
-		width: 150px;
+		width: 200px;
 	}
+	h2 { 
+		text-align: center;
+		margin-top: 40px;
+		margin-bottom: 50px;
+	 }
 	#f{
-	width:50px;
+		width:50px;
 		display: inline-block;
 	}
  	.red_msg {
  		color : red;
  		font-size : 12px;
  	}
-	
-	
-	
+ 	#join_form{
+ 		width: 900px;
+ 		margin: 10px auto;
+ 		padding-left: 300px;
+ 	}
+	div {	margin-top : 15px; 	}
+	div input[type=text] {
+		width: 240px;
+		height: 25px;
+	}
+	#join_btn_wrap {
+		padding-left: 190px;
+		margin-top:20px;
+	}
 </style>
+
+
  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		fnCheckSubmit();             // 모든 함수 확인 후 서브밋넘기기
 		fnbirth();                     // 생년월일 삽입
-		
 		fnIdCheck();				 
 		fnPwCheck();				   
 		fnPwDoubleCheck();
@@ -64,44 +81,9 @@
                return false;  
             } else 
             	return true;
-            
-	      
 	        });
 	    } //   function fnCheckSubmit()
 	    
-	
-	
-	// 아이디 체크
-<%--	function fnIdDoubleCheck(){
-		let idDouble = false;
-			$("#id").on('keyup',function(){
-	
-				$.ajax({
-					url : 'idCheck.member',
-					type : 'post',
-					data : 'id=' + $('#id').val(),
-					dataType: 'json',               // 받아올 데이터 타입
-					success : function(resData){
-						 if( resData.result == true ){
-							 $('#id_check').text('사용 가능한 아이디');
-							 $('#id_check').removeClass('red_msg');
-							 idDouble = true;
-						 }else {
-							 $('#id_check').text('이미 사용중인 아이디');
-							 $('#id_check').addClass('red_msg');
-							 idDouble = false;
-						 }
-					},
-					error : function(xhr, ajaxOptions, thrownError) {
-				       alert(xhr.responseText);
-				//		console.log(xhr.status);
-				  //      console.log(thrownError);
-					}
-					
-				}) // ajax
-			}); // id
-				 return idDouble;
-	} // fnIdDoubleCheck   --%>
 	
 
 	// 생년월일 삽입
@@ -353,9 +335,10 @@
                         <input type="radio" name="gender" value="m" id="male">
                         <label id="m"  for="male">남성</label>
         </div>
-        <button>회원가입</button>                 
-        <input type="reset" value="다시작성" id="reset_btn">                
-                        
+        <div id="join_btn_wrap">
+  	      <button>회원가입</button>                 
+       	  <input type="reset" value="다시작성" id="reset_btn">                
+        </div>                
 	</form>
 
 

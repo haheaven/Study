@@ -39,3 +39,17 @@
 		cursor: pointer;
 		width: 120px;
 	}
+	
+	 	.red_msg {
+ 		color : red;
+ 		font-size : 12px;
+ 	}
+ 	#login_success_box{
+ 	   width: 300px;
+ 	   margin: 0 auto;
+ 	}
+ 	#qna_btn, #move_btn {
+        display: inline-block;
+ 		width: 120px;
+ 	}
+ 

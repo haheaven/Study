@@ -30,9 +30,8 @@
  			}
 // 			console.log(idResult);
  	 		return idResult;
- 		 })
- 		
- 		}
+ 		 }) 	
+	}
  			
  		function fnPwCheck(){
  			let PwResult = false;
@@ -58,9 +57,7 @@
  	 				return false;
  				} return true;
  		   });
- 		}
- 	
- 
+ 		} 
  </script>
  <style>
  	.red_msg {
@@ -81,7 +78,7 @@
 	<h3>로그인 PAGE</h3>
 	<c:if test="${user != null}">
 	   <div id="login_success_box">
-			<h3>${user.name}님 반갑습니다.<input type="button" value="로그아웃" onclick="location.href='logout.member'"></h3>
+			<h3>${user.id}님 반갑습니다.<input type="button" value="로그아웃" onclick="location.href='logout.member'"></h3>
 			<input type="button" value="Q&A 이동" id="qna_btn" onclick="location.href='/MYBOARD/selectAllList.qna'">
 			<input type="button" value="공지사항으로 이동" id="notice_btn" onclick="location.href='selectAllList.do'">
 
@@ -98,6 +95,8 @@
 				<label for="pwd" >비밀번호</label> <input type="password" name="pw"  placeholder="pw" id="pw"><br>
 				<span id="pw_check"></span><br>
 			</div>
+			
+			
 			<div class="btn">
 				<button>로그인</button>&nbsp;
 				<input type="button" value="회원가입" onclick="location.href='/MYBOARD/joinForm.member'">

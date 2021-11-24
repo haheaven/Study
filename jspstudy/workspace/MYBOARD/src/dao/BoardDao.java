@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -86,8 +87,24 @@ public class BoardDao {
 		SqlSession ss = factory.openSession();
 		List<Board> list = ss.selectList("dao.Board.AdminList");
 		ss.close();
-		return list;
-		
+		return list;	
+	}
+	
+	// ******************* 9. 게시글 검색하기  *******************
+	public List<Board> searchBoard(Map<String, String> map){
+		SqlSession ss = factory.openSession();
+		List<Board> list = ss.selectList("dao.Board.searchBoard", map);
+		ss.close();
+		return list;	
+	}
+	
+	
+	// ******************* 10. 게시글 검색하기  *******************
+	public int getSearchCount(Map<String, String> map){
+		SqlSession ss = factory.openSession();
+		int result = ss.selectOne("dao.Board.getSearchCount", map);
+		ss.close();
+		return result;
 	}
 
 	

@@ -75,6 +75,7 @@
 			</tbody>
 		</table>
 			 <input type="button" value="글등록" id="insert_btn" id="insert_btn"><br>
+			 <input type="button" value="HOME" id="home_btn" onclick="location.href='index.do'"><br>
 	</form>
 	
 	<h2>새글등록</h2>

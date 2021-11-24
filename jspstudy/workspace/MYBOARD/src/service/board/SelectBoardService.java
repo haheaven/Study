@@ -1,5 +1,8 @@
 package service.board;
 
+import java.io.PrintWriter;
+import java.util.Optional;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -7,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import common.BoardService;
 import common.ModelAndView;
 import dao.BoardDao;
+import dao.QnADao;
 import dto.Board;
 
 public class SelectBoardService implements BoardService {
@@ -14,38 +18,39 @@ public class SelectBoardService implements BoardService {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		HttpSession session = request.getSession();
-	
-		Board board =  (Board)(session.getAttribute("board"));
-	
-	 	String strIdx = request.getParameter("idx");
-		Long idx = Long.parseLong(strIdx);
-		  
-		  
-		// 상세보기 첨  열기 
-		if(board == null) {
-			// 조회수 증가 db 다녀오기 
-			BoardDao.getInstance().hit(idx);
-			
-			// 증가된 조회수 게시글 가져오기
-			 board = BoardDao.getInstance().select(idx);
-			 
-			// 객체 저장을 세션에 하기
-			session.setAttribute("board",board);
-			System.out.println("저장");
-
-		    } 
+		Optional<String> strIdx = Optional.ofNullable(request.getParameter("idx"));
+		Long idx = Long.parseLong(strIdx.orElse("0"));
 		
+HttpSession session = request.getSession();
+		
+		if(session.getAttribute("open") == null ) {
+			// 세션없으면 세션 저장
+			session.setAttribute("open", true);
+			// 조회수 증가 
+		    BoardDao.getInstance().hit(idx);
+			
+		}  
+
+		  Board board = BoardDao.getInstance().select(idx);
+		  
+
 		// 세션 저장 있으면 
 		if (board != null) {
 			// 조회수증가 안한 게시글 가져오기		
-		   board = BoardDao.getInstance().select(idx);
+		//   board = BoardDao.getInstance().select(idx);
 		   request.setAttribute("board", board);
-		   System.out.println("삭제");
-			
+		   System.out.println(" 조회수 증가 안함 보드");
+		   return new ModelAndView("views/selectboard.jsp", false);
+		} else {
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('일치하는 공지사항이 없습니다. 다시 시도하세요')");
+			out.println("history.back()");
+			out.println("</script>");
+			out.close();
+			return null;
 		}
 
-		return new ModelAndView("views/selectboard.jsp", false);
 	}
 
 }

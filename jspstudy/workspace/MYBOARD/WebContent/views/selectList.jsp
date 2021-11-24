@@ -33,15 +33,37 @@
 	}); // load
 
 	</script>
+<style>
+	#search_wrap {
+		width:700px;
+		margin: 10px auto;
+		text-align:center;
+	}
+	#search_wrap select, #search_wrap input, #search_wrap button {	height: 25px;	}
+	#search_wrap button { width: 80px;  }
+
+	#f{
+		margin-bottom: 20px;
+	}
+	#f1{
+	 margin: 10px auto;
+	}
+	h3 {
+		margin-top: 80px;
+		text-align: center;
+	}
+	
+
+</style>
+
+
 </head>
 <body>
 	<h2 id="board">공지사항</h2>
 	
-	<c:if test="${not empty id and not empty pwd}">
-		<h3 id="user_id">${user.id}님 반갑습니다.</h3>
-	</c:if>
 	<form id="f" method="post"> 
-	 	<span id="count" >게시물 수 : ${cnt}</span> 
+	 	 <input type="button" value="HOME" onclick="location.href='index.do'">
+	 	 <span id="count" >게시물 수 : ${cnt}</span> 
 		<table class="t1">
 			<thead>
 				<tr id="first_tr">
@@ -54,12 +76,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:if test="${cnt eq 0}">
+				<c:if test="${empty list}">
 					<tr>
 						<td colspan="5">게시물 없습니다.</td>
 					</tr>
 				</c:if>
-				<c:if test="${cnt  gt 0}">
+				<c:if test="${ not empty list}">
 					<c:forEach var="board" items="${list}">
 						<tr>
 							<td>${board.idx}</td>	
@@ -77,25 +99,36 @@
 			<tfoot>	
 				<tr>
 					<td colspan="5">
-						  <input type="button" value="HOME" onclick="location.href='index.jsp'">
+						 
+						  <input type="button" value="전체보기" onclick="location.href='selectAllList.do'">
 				    </td>
 				</tr>
 			</tfoot>
 			
 		</table>
-		<c:if test="${user.id == 'admin'}">
-			 <input type="button" value="글등록" id="insert_btn" id="insert_btn"><br>
-	    </c:if>
+		
 	</form>
+	
+	<div id="search_wrap">
+		<form action="search.do" method="post" >
+		    <select name="column" >
+				<option value="TITLE">제목</option>
+				<option value="CONTENT">내용</option>
+				<option value="ALL">제목+내용</option>
+			</select>
+			<input type="text" name="query" style="width:350px; ">
+			<button>SERCH</button>
+		</form>
+	</div>	
 	<c:if test="${user.id == 'admin'}">
-		<h2>새글등록</h2>
+		<h3>새글등록</h3>
 		<form id="f1"  method='post'>
 			<table class="bInsert">
 					<tr>
 						<td>카테고리</td>
 						<td id="td">
 						
-							<select name="category" id="category" >
+							<select name="category"   id="category" >
 								<option value="배송">배송</option>
 								<option value="교환">교환</option>
 								<option value="환불">환불</option>
@@ -109,9 +142,7 @@
 					</tr>	
 					<tr>
 						<td>글쓴이</td>
-		
 							<td><input type="text" name="writer" value="${user.id}" readonly></td>
-		
 					</tr>
 					<tr>
 						<td>내용</td>

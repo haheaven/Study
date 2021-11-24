@@ -10,9 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 전체글 -->
 	<select id="selectlist" resultType="dto.Board">
-		SELECT idx, writer, title, content, category, readCount, register
-		FROM board
-		 ORDER BY idx DESC
+		 SELECT  idx, title, writer, category, readCount, content, register
+		   FROM board
 	</select>
 	
 	
@@ -53,12 +52,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM board WHERE idx=#{idx}
 	</delete>
 	
-	<!-- 게시판 저장하기  -->
+	<!-- 게시판 저장하기 =>  batch 관련 -->
 	<select id="AdminList"  resultType="dto.Board"  >
-		SELECT idx, writer, title, content, category,register
-			FROM board
-			where writer NOT IN('관리자')
+		SELECT idx, writer, title, content, category, register
+		  FROM board
+		 WHERE WRITER NOT IN('관리자')
 	</select>
 	
-
+	<!--  게시판 내용 검색하기 -->
+	<select id="searchBoard"  resultType="dto.Board"  parameterType="Map" >
+		SELECT IDX, WRITER, TITLE, CONTENT, CATEGORY, REGISTER
+		  FROM board
+		 WHERE <if test="column != 'ALL'">${column} LIKE #{query}</if>
+		       <if test= "column == 'ALL'">( TITLE LIKE #{query} OR CONTENT LIKE #{query} )</if>
+	</select>
+	
+	 
+	 <!-- 검색된 게시판만 수 나오기 -->
+	 <select id="getSearchCount" resultType="int" parameterType="Map">
+		SELECT count(*)
+		FROM board
+		WHERE <if test="column != 'ALL'">${column} LIKE #{query}</if>
+		       <if test= "column == 'ALL'">( TITLE LIKE #{query} OR CONTENT LIKE #{query} )</if>
+	</select>
+	 
 </mapper>

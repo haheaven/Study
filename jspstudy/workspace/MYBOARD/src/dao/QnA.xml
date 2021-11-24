@@ -10,9 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 전체글 -->
 	<select id="selectlist" resultType="dto.QnA">
-		SELECT idx, writer, title, content, category, readCount, register
+		SELECT  idx, title, writer, category, readCount, content, register
 		FROM qna
-		 ORDER BY idx DESC
 	</select>
 	
 	
@@ -31,14 +30,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--  상세보기  -->
 	<select id="select" parameterType="long" resultType="dto.QnA">
 		SELECT  idx, title, writer, category, readCount, content, register
-		FROM qna
-		WHERE idx=#{idx}
+		  FROM qna
+		 WHERE idx=#{idx}
 	</select>
 	
 	<!-- 조회수 증가 -->
 	<update id="hit" parameterType="long">
 		UPDATE qna SET readCount=readCount+1 
-		WHERE idx=#{idx}
+		 WHERE idx=#{idx}
 	</update>
 	
 	<!-- 게시판 수정하기 -->

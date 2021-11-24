@@ -15,6 +15,7 @@ public class MemberLoginService implements MemberService {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
@@ -36,7 +37,7 @@ public class MemberLoginService implements MemberService {
 			// 로그인 기록 남기기..!!!
 			MemberDao.getInstance().loginLog(id);
 			
-			return new ModelAndView("index.jsp", true);
+			return new ModelAndView("index.do", true);
 			
 		}
 		// 일치하는 회원 없으면 

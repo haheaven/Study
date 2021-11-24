@@ -130,9 +130,10 @@
 		 
 		 		<tr>
 					<td>글쓴이</td>
-						<td><input type="text" name="writer" value="${user.id}" readonly>
-						<input type="hidden" name="idx" value="${board.idx}">
-						<input type="hidden" id="pw" value="${user.pw}">
+						<td>
+							<input type="text" name="writer" value="${user.id}" readonly>
+							<input type="hidden" name="idx" value="${board.idx}">
+							<input type="hidden" id="pw" value="${user.pw}">
 						</td>				
 				</tr>
 				<tr>
