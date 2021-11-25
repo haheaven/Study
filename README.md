@@ -15,9 +15,12 @@ git.io 포트톨리오 : https://excited-hyun.tistory.com/51
  
 * * *
 ### JAVA STUDY
-
-
-
+> javaChobo folder => 자바의 정석 예제      
+> javajunsuk folder 
+       >  자바 스터디 2021-10-02 조건 반복문
+       >  자바 스터디 2021-10-02 조건 반복문    
+       >  자바 스터디 2021-10-02 조건 반복문       
+       >  자바 스터디 2021-10-02 조건 반복문
 
 * * *
 ### JSP STUDY
