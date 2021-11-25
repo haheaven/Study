@@ -9,9 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="dao.QnA">
 	
 	<!-- 전체글 -->
-	<select id="selectlist" resultType="dto.QnA">
-		SELECT  idx, title, writer, category, readCount, content, register
-		FROM qna
+	<select id="selectlist" resultType="dto.QnA" parameterType="Map">
+		SELECT  b.idx, b.title, b.writer, b.category, b.readCount, b.content, b.register
+		FROM ( SELECT ROWNUM AS RN, a.idx, a.title, a.writer, a.category, a.readCount, a.content, a.register 
+				 FROM ( SELECT  idx, title, writer, category, readCount, content, register 
+				 	 	  FROM QNA
+				 	 	 ORDER BY IDX DESC)A)B
+		WHERE  B.RN BETWEEN #{beginRecord} AND #{endRecord}	
 	</select>
 	
 	
@@ -57,6 +61,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT idx, writer, title, content, category,register
 			FROM qna
 			where writer NOT IN('관리자')
+	</select>
+	
+	<!--  게시판 검색하기  -->
+	<select id="searchQnA" parameterType="Map" resultType="dto.QnA">
+	SELECT  b.idx, b.title, b.writer, b.category, b.readCount, b.content, b.register
+      FROM ( SELECT  ROWNUM AS RN, a.idx, a.title, a.writer, a.category, a.readCount, a.content, a.register 
+				 FROM ( SELECT  idx, title, writer, category, readCount, content, register 
+				 	 	  FROM QNA
+				 	     WHERE <if test=" column != 'ALL' ">${column} LIKE #{query}</if>
+		 					   <if test=" column == 'ALL'">(TITLE LIKE #{query} OR CONTENT LIKE #{query} OR WRITER LIKE #{query})</if>
+				 	 	 ORDER BY IDX DESC )A )B
+   	   WHERE  B.RN BETWEEN #{beginRecord} AND #{endRecord}	
+	</select>
+	
+	
+	<!--  게시판 수 검색하기  -->
+	<select id="searchQnACount" resultType="int" parameterType="Map">
+		SELECT COUNT(*)
+		  FROM qna
+		 WHERE <if test=" column != 'ALL' ">${column} LIKE #{query}</if>
+		 		<if test=" column == 'ALL'">(TITLE LIKE #{query} OR CONTENT LIKE #{query} OR WRITER LIKE #{query})</if>
 	</select>
 	
 

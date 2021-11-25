@@ -1,21 +1,19 @@
-package service.board;
+package service.qna;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.BoardService;
 import common.ModelAndView;
 import common.Page;
-import dao.BoardDao;
-import dto.Board;
+import dao.QnADao;
+import dto.QnA;
 
-public class SearchBoardSerivce implements BoardService {
+public class SearchQnAService implements QnAService {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -25,37 +23,40 @@ public class SearchBoardSerivce implements BoardService {
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("column", column);
-		map.put("query", "%"+query+"%");    // 어떤 검색어든 검색될수 있게 앞 뒤로 만능문자 주어 가능하게 한다.
+		map.put("query", "%"+ query + "%");
 		
 		
-		int cnt = BoardDao.getInstance().getSearchCount(map);
 		
+		
+		// 검색된 수 
+		int cnt = QnADao.getInstance().searchQnACount(map);
+		
+		
+		// 페이징2. 현재 페이지 번호 확인하기
+		// page가 안 넘어오면 page = 1로 처리함.
 		Optional<String> opt = Optional.ofNullable(request.getParameter("page"));
 		int page = Integer.parseInt(opt.orElse("1"));
-		
+			
+		// 페이징3. 페이징에 필요한 모든 계산 처리하기
 		Page p = new Page();
 		p.setPageEntity(cnt, page);
 		
-		String pageEntity =  p.getPageEntity("search.do?column="+column+"&query="+query);        // 찾기를 하기위해 column과 query를 추가해서 보낸다.
+		// 페이징4. String으로 < 1 2 3 4 5 > 만들기
+		String pageEntity = p.getPageEntity("search.qna?column="+column+"&query="+query);        // 찾기를 하기위해 column과 query를 추가해서 보낸다.
+		
 		
 		// 페이징5. DB로 보낼 beginRecord, endRecord 작업 
 		map.put("beginRecord", p.getBeginRecord()+"");
 		map.put("endRecord", p.getEndRecord()+"");
 		
+		List<QnA> list = QnADao.getInstance().searchQnA(map);
 		
-		
-		
-		List<Board> list = BoardDao.getInstance().searchBoard(map);
-		
-		Logger logger =  Logger.getLogger(SearchBoardSerivce.class.getName());
-	    logger.info("검색 : "+list.toString());
-		
-		request.setAttribute("list", list);
 		request.setAttribute("cnt", cnt);
+		request.setAttribute("list", list);
 		request.setAttribute("pageEntity", pageEntity);
 		request.setAttribute("startNum", cnt - (page - 1) * p.getRecordPerPage());
-	
-		return new ModelAndView("views/selectList.jsp", false);
+		
+		return new ModelAndView("qna/selectList.jsp", false);
 	}
 
 }

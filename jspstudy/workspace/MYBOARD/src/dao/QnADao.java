@@ -1,10 +1,12 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import dto.Board;
 import dto.QnA;
 import mybatis.config.DBService;
 
@@ -22,9 +24,9 @@ public class QnADao {
 	}
 	
 	// 1. 로그인해서 전체리스트로 
-	public List<QnA> selectlist(){
+	public List<QnA> selectlist(Map<String, Integer> map){
 		SqlSession ss = factory.openSession();
-		List<QnA> list = ss.selectList("dao.QnA.selectlist");
+		List<QnA> list = ss.selectList("dao.QnA.selectlist", map);
 		ss.close();
 		return list;
 	}
@@ -88,6 +90,24 @@ public class QnADao {
 		ss.close();
 		return list;
 		
+	}
+	
+	
+	// 9. 게시물  검색 
+	public List<QnA> searchQnA(Map<String, String> map){
+		SqlSession ss = factory.openSession();
+		List<QnA> list = ss.selectList("dao.QnA.searchQnA", map);
+		ss.close();
+		return list;	
+	}
+	
+	
+	//10. 게시물 수 검색 
+	public int searchQnACount(Map<String, String> map) {
+		SqlSession ss = factory.openSession();
+		int cnt = ss.selectOne("dao.QnA.searchQnACount", map);
+		ss.close();
+		return cnt;
 	}
 
 	

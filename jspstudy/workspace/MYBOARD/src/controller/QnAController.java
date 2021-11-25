@@ -15,6 +15,7 @@ import service.qna.DeleteQnAService;
 import service.qna.InsertQnAService;
 import service.qna.ListQnAService;
 import service.qna.QnAService;
+import service.qna.SearchQnAService;
 import service.qna.SelectQnAService;
 import service.qna.UpdateQnAService;
 
@@ -60,7 +61,10 @@ public class QnAController extends HttpServlet {
 		case "insertReply.qna":           // 댓글삽입
 			service = new QnAReplyInsertService();
 			break;
-	
+		case "search.qna" :				 	// qna 검색
+			service = new SearchQnAService(); 
+		    break;
+		   
 		}
 		
 		

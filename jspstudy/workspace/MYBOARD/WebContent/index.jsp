@@ -75,12 +75,13 @@
  </style>
 </head>
 <body>
-	<h3>로그인 PAGE</h3>
+	<h3>로그인</h3>
 	<c:if test="${user != null}">
 	   <div id="login_success_box">
-			<h3>${user.id}님 반갑습니다.<input type="button" value="로그아웃" onclick="location.href='logout.member'"></h3>
+			<h3>${user.id}님 반갑습니다.</h3>
 			<input type="button" value="Q&A 이동" id="qna_btn" onclick="location.href='/MYBOARD/selectAllList.qna'">
-			<input type="button" value="공지사항으로 이동" id="notice_btn" onclick="location.href='selectAllList.do'">
+			<input type="button" value="공지사항으로 이동" id="notice_btn" onclick="location.href='selectAllList.do'"><br>
+			<input type="button" value="로그아웃" onclick="location.href='logout.member'">
 
 		</div>
 	</c:if>

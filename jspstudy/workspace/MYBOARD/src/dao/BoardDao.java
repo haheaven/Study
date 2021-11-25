@@ -23,9 +23,9 @@ public class BoardDao {
 	}
 	
 	// 1. 로그인해서 전체리스트로 
-	public List<Board> selectlist(){
+	public List<Board> selectlist(Map<String, Integer> map){
 		SqlSession ss = factory.openSession();
-		List<Board> list = ss.selectList("dao.Board.selectlist");
+		List<Board> list = ss.selectList("dao.Board.selectlist", map);
 		ss.close();
 		return list;
 	}
@@ -99,7 +99,7 @@ public class BoardDao {
 	}
 	
 	
-	// ******************* 10. 게시글 검색하기  *******************
+	// ******************* 10. 게시글 검색하기 : 수  *******************
 	public int getSearchCount(Map<String, String> map){
 		SqlSession ss = factory.openSession();
 		int result = ss.selectOne("dao.Board.getSearchCount", map);

@@ -33,9 +33,11 @@
 	}); // load
 
 	</script>
+
+
 </head>
 <body>
-	<h2 id="board">QnA게시판</h2>
+	<h2 id="board"><a href="selectAllList.qna">QnA</a></h2>
 	
 	<c:if test="${not empty id and not empty pw}">
 		<h3 id="user_id">${user.id}님 반갑습니다.</h3>
@@ -54,12 +56,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:if test="${cnt eq 0}">
+				<c:if test="${empty list}">
 					<tr>
 						<td colspan="5">게시물 없습니다.</td>
 					</tr>
 				</c:if>
-				<c:if test="${cnt  gt 0}">
+				<c:if test="${not empty list}">
 					<c:forEach var="qna" items="${list}">
 						<tr>
 							<td>${qna.idx}</td>	
@@ -73,12 +75,36 @@
 					</c:forEach>
 				</c:if>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="6" id="page_section">${pageEntity}</td>
+				</tr>
+			</tfoot>
 		</table>
-			 <input type="button" value="글등록" id="insert_btn" id="insert_btn"><br>
+			 <input type="button" value="글등록" id="insert_btn" id="insert_btn">
 			 <input type="button" value="HOME" id="home_btn" onclick="location.href='index.do'"><br>
 	</form>
 	
-	<h2>새글등록</h2>
+	<!--  검색 부분  -->
+	<div id="search_wrap">
+		<form action="search.qna">
+			<select name="column">
+				<option value="TITLE">제목</option>
+				<option value="WRITER">글쓴이</option>
+				<option value="CONTENT">내용</option>
+				<option value="ALL">제목+글쓴이+내용</option>
+			</select>
+				<input type="text" name="query">
+				<button>SEARCH</button>
+		</form>
+	</div>
+	
+	
+	
+	
+	<hr>
+	
+	<h3>새글등록</h3>
 	<form id="f1"  method='post'>
 		<table class="bInsert">
 				<tr>

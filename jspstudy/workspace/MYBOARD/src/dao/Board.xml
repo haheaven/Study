@@ -9,9 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="dao.Board">
 	
 	<!-- 전체글 -->
-	<select id="selectlist" resultType="dto.Board">
-		 SELECT  idx, title, writer, category, readCount, content, register
-		   FROM board
+	<select id="selectlist" parameterType="Map" resultType="dto.Board">
+		 SELECT  b.idx, b.title, b.writer, b.category, b.readCount, b.content, b.register
+		   FROM (  SELECT  ROWNUM AS RN, A.idx, A.title, A.writer, A.category, A.readCount, A.content, A.register
+		             FROM  ( SELECT  idx, title, writer, category, readCount, content, register
+		                       FROM BOARD
+		                       ORDER BY IDX DESC )A )B
+			WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}		   
 	</select>
 	
 	
@@ -61,10 +65,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!--  게시판 내용 검색하기 -->
 	<select id="searchBoard"  resultType="dto.Board"  parameterType="Map" >
-		SELECT IDX, WRITER, TITLE, CONTENT, CATEGORY, REGISTER
-		  FROM board
-		 WHERE <if test="column != 'ALL'">${column} LIKE #{query}</if>
-		       <if test= "column == 'ALL'">( TITLE LIKE #{query} OR CONTENT LIKE #{query} )</if>
+	 SELECT  b.idx, b.title, b.writer, b.category, b.readCount, b.content, b.register
+		   FROM (  SELECT  ROWNUM AS RN, A.idx, A.title, A.writer, A.category, A.readCount, A.content, A.register
+		             FROM  ( SELECT  idx, title, writer, category, readCount, content, register
+		                       FROM BOARD
+		                      WHERE <if test="column != 'ALL'">${column} LIKE #{query}</if>
+		     					    <if test= "column == 'ALL'">( TITLE LIKE #{query} OR CONTENT LIKE #{query} )</if>
+		                       ORDER BY IDX DESC )A )B
+			WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}	
+		
 	</select>
 	
 	 

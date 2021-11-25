@@ -52,14 +52,19 @@
 		margin-top: 80px;
 		text-align: center;
 	}
-	
+	a{ color : black; text-decoration: none; }
+	#page_section { 
+		text-align: center;
+		padding-left:50px;
+		 }
+	.page_next, .page_prev, #page_section a { color : #989898; }
 
 </style>
 
 
 </head>
 <body>
-	<h2 id="board">공지사항</h2>
+	<h2 id="board"><a href="selectAllList.do">공지사항</a></h2>
 	
 	<form id="f" method="post"> 
 	 	 <input type="button" value="HOME" onclick="location.href='index.do'">
@@ -98,10 +103,7 @@
 			</tbody>
 			<tfoot>	
 				<tr>
-					<td colspan="5">
-						 
-						  <input type="button" value="전체보기" onclick="location.href='selectAllList.do'">
-				    </td>
+					<td colspan="5" id="page_section">${pageEntity}</td>
 				</tr>
 			</tfoot>
 			
