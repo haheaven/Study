@@ -33,3 +33,6 @@ git.io 포트톨리오 : https://excited-hyun.tistory.com/51
                    
          
 ### JSP STUDY
+
+
+<img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp 
