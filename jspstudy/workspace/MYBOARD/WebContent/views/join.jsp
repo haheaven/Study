@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>selectOne</title>
+<link rel="stylesheet" type="text/css" href="css/header.css">
+
 <style>
 	label, #gender_box {
 		display: inline-block;
@@ -292,6 +294,7 @@
 </script>
 </head>
 <body>
+ <%@ include file="/layout/header.jsp" %>
    <h2>회원가입 페이지</h2>
 	<form action="/MYBOARD/join.member" method="post" id="join_form">
 	<div>
@@ -340,7 +343,6 @@
        	  <input type="reset" value="다시작성" id="reset_btn">                
         </div>                
 	</form>
-
 
 
 

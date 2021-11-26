@@ -40,7 +40,7 @@ public class SelectQnAService implements QnAService {
 			// 조회수증가 안한 게시글 가져오기		
 		//	qna = QnADao.getInstance().select(idx);
 		   request.setAttribute("qna", qna);
-		   System.out.println("qna session 삭제");
+		 //  System.out.println("qna session 삭제");
 		   return new ModelAndView("qna/selectQnA.jsp", false);
 			
 		} else {

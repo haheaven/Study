@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>Login</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
- <link rel="stylesheet" type="text/css" href="css/index.css">
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+ <link rel="stylesheet" type="text/css" href="css/header.css">
  <script>
  	$(document).ready(function(){
  		fnIdCheck();
@@ -51,7 +52,7 @@
  		}
  		
  		function fnSubmit(){
- 			$('#login_form').on('submit',function(event){
+ 			$('form').on('submit',function(event){
  				if( fnIdCheck() == false ||  fnPwCheck() == false ){
  					event.preventDefault();
  	 				return false;
@@ -68,43 +69,48 @@
  	   width: 300px;
  	   margin: 0 auto;
  	}
- 	#qna_btn, #move_btn {
- 		width: 120px;
+ 	#login_form {
+ 		width : 700px;
+ 		margin: 0 auto;
+ 		padding-left : 100px; 
  	}
- 
+ 	.login_btn { margin-left: 130px;	}
+	a{ color : black; text-decoration: none; }
+		#logout_link {
+		text-align: right;
+	}
  </style>
 </head>
 <body>
-	<h3>로그인</h3>
+ <%@ include file="layout/header.jsp" %>
+
+
 	<c:if test="${user != null}">
 	   <div id="login_success_box">
 			<h3>${user.id}님 반갑습니다.</h3>
-			<input type="button" value="Q&A 이동" id="qna_btn" onclick="location.href='/MYBOARD/selectAllList.qna'">
-			<input type="button" value="공지사항으로 이동" id="notice_btn" onclick="location.href='selectAllList.do'"><br>
-			<input type="button" value="로그아웃" onclick="location.href='logout.member'">
-
 		</div>
 	</c:if>
 	
-	
-	
 	 <c:if test="${user == null}">
-		<form method="post"  action="login.member" id="login_form">
-			 <div class="login_box">
-				<label for="writer" >아이디</label> <input type="text" name="id" placeholder="id" id="id" autofocus><br>
+		<form method="post"  action="login.member" id="login_form" >
+			 <div class="mb-3">
+				<label for="writer" class="form-label">아이디</label> 
+				<input type="text" name="id" placeholder="id" class="form-control" id="id" autofocus>
 				<span id="id_check"></span><br>
-				<label for="pwd" >비밀번호</label> <input type="password" name="pw"  placeholder="pw" id="pw"><br>
+			</div>
+			 <div class="mb-3">
+				<label for="pwd"  class="form-label">비밀번호</label>
+				<input type="password" name="pw"  placeholder="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock">
 				<span id="pw_check"></span><br>
 			</div>
 			
-			
 			<div class="btn">
-				<button>로그인</button>&nbsp;
-				<input type="button" value="회원가입" onclick="location.href='/MYBOARD/joinForm.member'">
+				<button class="btn btn-primary login_btn"  >로그인</button>&nbsp;
+				<input class="btn btn-primary" type="button" value="회원가입" onclick="location.href='/MYBOARD/joinForm.member'">
 			</div>	
 		</form>
 	</c:if>
 	
-	
+ 
 </body>
 </html>

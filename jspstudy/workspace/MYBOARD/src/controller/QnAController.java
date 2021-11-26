@@ -43,22 +43,25 @@ public class QnAController extends HttpServlet {
 		case "selectAllList.qna":   // 로그인 - 세션저장하기
 			service = new ListQnAService();
 			break;
+		case "insertForm.qna":				  // Q&A 등록하러가기
+			mav = new ModelAndView("qna/insert.jsp",false);
+			break;
 		case "insert.qna":                    // Q&A 등록
 			service = new InsertQnAService();
 			break;
-		case "select.qna":                   // Q&A 상세
+		case "select.qna":                    // Q&A 상세
 			service = new SelectQnAService();
 			break;
-		case "update.qna":                  // Q&A 수정
+		case "update.qna":                   // Q&A 수정
 			service = new UpdateQnAService();
 			break;
-		case "delete.qna":                  // Q&A 삭제
+		case "delete.qna":                   // Q&A 삭제
 			service = new DeleteQnAService();
 			break;
 		case "listQnAReply.qna":             // 댓글리스트
 			service = new QnAReplyListService();
 			break;
-		case "insertReply.qna":           // 댓글삽입
+		case "insertReply.qna":              // 댓글삽입
 			service = new QnAReplyInsertService();
 			break;
 		case "search.qna" :				 	// qna 검색

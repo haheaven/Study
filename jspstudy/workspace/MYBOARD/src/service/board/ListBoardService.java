@@ -21,6 +21,12 @@ public class ListBoardService implements BoardService {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	HttpSession session = request.getSession();
 		
+	if( session.getAttribute("open") != null) {
+		session.removeAttribute("open");
+	}
+	
+	
+	
 		Board board =  (Board)(session.getAttribute("board"));
 		// 리스트로 되돌아와서 게시글 있으면 세션삭제하고 다시 시작
 		if (session.getAttribute("board") != null) {

@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>selectOne</title>
  <link rel="stylesheet" type="text/css" href="css/BoardDetail.css">
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+ <link rel="stylesheet" type="text/css" href="css/header.css">
  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
 	$(document).ready(function(){
@@ -19,14 +21,7 @@
 	// 게시글 수정 
 	function fnUpdateInsertBoard() {
 		$('#update').on('click',function(){
-		let update_check =  prompt('비밀번호를 입력해주세요.');
-			if( update_check == $('#pw').val() ){
-				$('#reset').show();
-				$('#realupdate').show();
-				$('#delete').show();
-				$(this).hide();
-				$("#title").removeAttr("readonly");
-				$("#content").removeAttr("readonly");
+		
 		
 			$('#realupdate').on('click',function(){
 				$.ajax({
@@ -43,16 +38,20 @@
 					}
 				}); // ajax		
 			 });//real
-			} // if
-			else{
-				alert('비밀번호가 일치하지 않습니다.');
-			}
+		
+			
 		})		
 	}
 	
 	// 댓글삽입
 	function fnInsertReply(){	
 		$('#f1').on('submit',function(event){	
+			
+			if( '${user}' == null ){
+				alert('로그인 후 이용가능합니다');
+				event.preventDefault();
+				return false;
+			}			
 			// 빈값 서브밋금지  -->  writer는 로그인한 사람 적용시키기!!!
 				if( $("#comment_content").val() == ''  || $("#comment_writer").val() == ''){
 					alert('입력은 필수입니다.');
@@ -112,10 +111,19 @@
 			}); // ajax			
 		} // funciotn
 </script>
-
+<style type="text/css">
+	a{ color : black; text-decoration: none; }
+	#reset, #realupdate, #delete{
+		width: 120px;
+		height: 30px;
+	}
+	
+</style>
 </head>
 <body>
-<h2>게시판</h2>
+ <%@ include file="/layout/header.jsp" %>
+
+<h2><a href="selectAllList.do">공지사항</a></h2>
 	<form  method="post">
 	
 		 <table>
@@ -131,7 +139,7 @@
 		 		<tr>
 					<td>글쓴이</td>
 						<td>
-							<input type="text" name="writer" value="${user.id}" readonly>
+							<input type="text" name="writer" value="${board.writer}" readonly>
 							<input type="hidden" name="idx" value="${board.idx}">
 							<input type="hidden" id="pw" value="${user.pw}">
 						</td>				
@@ -151,11 +159,13 @@
 				</tr>
 				<tr>
 					<td colspan="2" class="btn_td">
+					 <c:if test="${user.id == board.writer}">
 						<input class="btn1" id="update" type="button" value="수정하기" >
 						<input  id="realupdate" type="button" value="수정완료">
 						<input  id="reset" type="reset" value="다시 작성">
 						<input  id="delete" type="button" value="삭제" onclick="location.href='delete.do?idx=${board.idx}'">
-						<input class="btn1"  id="move" type="button" value="게시판 이동" onclick="location.href='selectAllList.do?hit=${hit}'">
+					</c:if>
+				<!--  		<input class="btn1"  id="move" type="button" value="게시판 이동" onclick="location.href='selectAllList.do?hit=${hit}'">  -->
 					</td>
 				</tr>
 		</table>
@@ -190,7 +200,6 @@
 			<input type="hidden" name="idx" value="${board.idx}" id="comment_idx">
 			<button>입력</button>
 		</form>
-	</div>
-
+	</div>	
 </body>
 </html>

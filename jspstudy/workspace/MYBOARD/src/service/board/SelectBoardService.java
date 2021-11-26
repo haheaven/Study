@@ -21,7 +21,7 @@ public class SelectBoardService implements BoardService {
 		Optional<String> strIdx = Optional.ofNullable(request.getParameter("idx"));
 		Long idx = Long.parseLong(strIdx.orElse("0"));
 		
-HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("open") == null ) {
 			// 세션없으면 세션 저장
@@ -39,7 +39,7 @@ HttpSession session = request.getSession();
 			// 조회수증가 안한 게시글 가져오기		
 		//   board = BoardDao.getInstance().select(idx);
 		   request.setAttribute("board", board);
-		   System.out.println(" 조회수 증가 안함 보드");
+		//   System.out.println(" 조회수 증가 안함 보드");
 		   return new ModelAndView("views/selectboard.jsp", false);
 		} else {
 			PrintWriter out = response.getWriter();

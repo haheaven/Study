@@ -60,20 +60,16 @@ public class Page {
 					sb.append("<a href=\""+path+"&page=" + i + "\">&nbsp;" + i + "</a>&nbsp;&nbsp;");					
 				} else {
 					sb.append("<a href=\""+path+"?page=" + i + "\">&nbsp;" + i + "</a>&nbsp;&nbsp;");
-
 				}
 			}
 		}
-		
 		// 다음 페이지 이동 
 		if(endPage == totalPage) {
 			sb.append("<span class=\"page_next\">&nbsp;NEXT</span>");
 		} else {
 			sb.append("<a class=\"page_next\"  href=\""+path+concat +"page="+(page+1)+"\">NEXT</a>");
 		}
-		
 		return sb.toString();
-		
 	}
 	
 	
@@ -131,14 +127,5 @@ public class Page {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
-	
-	
-	
-
-	
-	
-	
-	
-	
 	
 }

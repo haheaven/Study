@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	 <link rel="stylesheet" type="text/css" href="css/header.css">
 	 <link rel="stylesheet" type="text/css" href="css/Board.css">
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -58,18 +60,19 @@
 		padding-left:50px;
 		 }
 	.page_next, .page_prev, #page_section a { color : #989898; }
-
+	#search_box { border: 1px solid black;  border-radius: 2px; }
 </style>
 
 
 </head>
 <body>
+ <%@ include file="/layout/header.jsp" %>
 	<h2 id="board"><a href="selectAllList.do">공지사항</a></h2>
 	
 	<form id="f" method="post"> 
-	 	 <input type="button" value="HOME" onclick="location.href='index.do'">
+
 	 	 <span id="count" >게시물 수 : ${cnt}</span> 
-		<table class="t1">
+		<table  class="table table-hover">
 			<thead>
 				<tr id="first_tr">
 					<td>글번호</td>	
@@ -103,7 +106,7 @@
 			</tbody>
 			<tfoot>	
 				<tr>
-					<td colspan="5" id="page_section">${pageEntity}</td>
+					<td colspan="6" id="page_section">${pageEntity}</td>
 				</tr>
 			</tfoot>
 			
@@ -119,7 +122,7 @@
 				<option value="ALL">제목+내용</option>
 			</select>
 			<input type="text" name="query" style="width:350px; ">
-			<button>SERCH</button>
+			<button id="search_box">SERCH</button>
 		</form>
 	</div>	
 	<c:if test="${user.id == 'admin'}">
@@ -162,5 +165,8 @@
 			</table>
 		</form>
 	  </c:if>
+	  
+  
+	  
 </body>
 </html>

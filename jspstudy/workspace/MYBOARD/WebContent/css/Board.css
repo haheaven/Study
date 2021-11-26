@@ -20,8 +20,9 @@
 		}
 		#count{ 
 			display:inline-block;
-			width: 630px;
+			width: 680px;
 			text-align: right;
+			margin-bottom:5px;
 		}
 		
 		.t1{
@@ -68,7 +69,10 @@
 			margin-bottom: 5px;
 			margin-left:5px;
 		 }
-		
+		#insert_link {  
+			color: black;
+			text-align: right;
+		 }
 		h3{  text-align: center;	}
 		#search_wrap {
 			width: 600px;
@@ -77,7 +81,7 @@
 			margin-top: 20px;
 			margin-bottom: 50px;
 		}
-		#search_wrap input, #search_wrap select, #search_wrap button { height: 25px; }
+		#search_wrap input, #search_wrap select, #search_wrap button { height: 25px;  border: 1px solid black; }
 		#search_wrap input[type=text] { width: 300px; }
 		a{
 			color:black;
