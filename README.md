@@ -36,5 +36,5 @@ git.io 포트톨리오 : https://excited-hyun.tistory.com/51
   
 # JSP STUDY
  ##### MYBOARD : 관리자 접근 가능 공지사항(수정, 삽입, 삭제) + 사용자 접근 가능 QNA(각 유저만 삽입, 수정, 삭제)
-
+ ##### DAUM : 다음 로그인 화면 구현 + 네이버 captcha API
 
