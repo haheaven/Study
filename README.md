@@ -21,8 +21,8 @@ git.io 포트톨리오 : https://excited-hyun.tistory.com/51
  <br/><br/>  
 # JAVA STUDY
 
- ### javaChobo folder => 자바의 정석 예제      
- ### javajunsuk folder 
+ ### 1) javaChobo folder => 자바의 정석 예제      
+ ### 2) javajunsuk folder 
  ##### 1. 자바 스터디 2021-10-02  자바의 정석 연습문제 풀이 _ chapter4 : 조건,반복문     
  ##### 2. 자바 스터디 2021-10-09  자바의 정석 연습문제 풀이 _ chapter5 : 배열     
  ##### 3. 자바 스터디 2021-10-16  자바의 정석 연습문제 풀이 _ chapter6 : 객체지향       
@@ -35,6 +35,6 @@ git.io 포트톨리오 : https://excited-hyun.tistory.com/51
 <br/><br/>
   
 # JSP STUDY
- ### MYBOARD : 관리자 접근 가능 공지사항(수정, 삽입, 삭제), 사용자 접근 가능 QNA(각 유저만 삽입, 수정, 삭제)
+ ##### MYBOARD : 관리자 접근 가능 공지사항(수정, 삽입, 삭제) + 사용자 접근 가능 QNA(각 유저만 삽입, 수정, 삭제)
 
 
