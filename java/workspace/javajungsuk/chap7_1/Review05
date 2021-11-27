@@ -39,7 +39,7 @@
 	   * instance of 로 형변환 가능 여부 확인 가능 (타입을 확인)
  
  관련 그림 및 정리 내 노션 참고 
-    https://plausible-bottom-9ea.notion.site/2-de3ca218898e40a4adacbb4909a0dfeb
+    https://plausible-bottom-9ea.notion.site/2-de3ca218898e40a4adacbb4909a0dfeb 
 
 5. 추상 클래스 
 	  구현부가 없는 메소드. 미완성 설계도 
