@@ -43,7 +43,7 @@ public class ListBoardService implements BoardService {
 		Page p = new Page();
 		p.setPageEntity(cnt, page);
 		
-		String pageEntity = p.getPageEntity("selectlist.do");
+		String pageEntity = p.getPageEntity("selectAllList.do");
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("beginRecord", p.getBeginRecord());
@@ -51,7 +51,7 @@ public class ListBoardService implements BoardService {
 		
 		List<Board> list =  BoardDao.getInstance().selectlist(map);
 		
-		
+		request.setAttribute("page", page);
 		request.setAttribute("pageEntity", pageEntity);
 		request.setAttribute("list",list);
 		request.setAttribute("cnt", cnt);

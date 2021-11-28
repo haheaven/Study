@@ -10,13 +10,20 @@
 	 <link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	 <link rel="stylesheet" type="text/css" href="css/Board.css">
-
+<script type="text/javascript">
+$(document).ready(function(){
+	console.log('${page}');
+})
+</script>
 <style type="text/css">
+ #f {  width:900px;
+ }
 	a{ color : black; text-decoration: none; }
 		#insert_link {  
 			color: black;
 			text-align: right;
 		 }
+	
 </style>
 </head>
 <body>
@@ -24,9 +31,7 @@
 
 	<h2 id="board"><a href="selectAllList.qna">QnA</a></h2>
 	
-	<c:if test="${not empty id and not empty pw}">
-		<h3 id="user_id">${user.id}님 반갑습니다.</h3>
-	</c:if>
+	
 	<form id="f" method="post"> 
 	 	<c:if test="${user != null }">
 			<a id="insert_link" href="insertForm.qna">글등록</a>

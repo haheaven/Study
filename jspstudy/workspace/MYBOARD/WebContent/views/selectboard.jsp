@@ -6,24 +6,27 @@
 <head>
 <meta charset="UTF-8">
 <title>selectOne</title>
+ <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  <link rel="stylesheet" type="text/css" href="css/BoardDetail.css">
  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
  <link rel="stylesheet" type="text/css" href="css/header.css">
- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
 	$(document).ready(function(){
 		fnSelectReply();
 		fnInsertReply();
 		fnUpdateInsertBoard();
+		
+		if( '${user.id}' == '${board.writer}'){
+			$("#content").removeAttr('readonly');
+			$("#title").removeAttr('readonly');
+		}
+		
 	}); // load
 	
 	
 	// 게시글 수정 
 	function fnUpdateInsertBoard() {
 		$('#update').on('click',function(){
-		
-		
-			$('#realupdate').on('click',function(){
 				$.ajax({
 					url : "update.do",
 					type:"post",
@@ -36,30 +39,24 @@
 				        console.log(xhr.status);
 				        console.log(thrownError);
 					}
-				}); // ajax		
-			 });//real
-		
-			
-		})		
+				}); // ajax	
+			})		
 	}
-	
 	// 댓글삽입
 	function fnInsertReply(){	
 		$('#f1').on('submit',function(event){	
-			
-			if( '${user}' == null ){
+			if( $("#comment_writer").val() == '' ){
 				alert('로그인 후 이용가능합니다');
-				event.preventDefault();
+				$("#comment_content").val('');
 				return false;
-			}			
+			}		
 			// 빈값 서브밋금지  -->  writer는 로그인한 사람 적용시키기!!!
-				if( $("#comment_content").val() == ''  || $("#comment_writer").val() == ''){
+				if( $("#comment_content").val() == '' ){
 					alert('입력은 필수입니다.');
 					$("#comment_content").focus();
 					event.preventDefault();
 					return false;
 			}  
-			
 				$.ajax({
 					url : 'insertReply.do',
 					type : 'post',
@@ -160,12 +157,10 @@
 				<tr>
 					<td colspan="2" class="btn_td">
 					 <c:if test="${user.id == board.writer}">
-						<input class="btn1" id="update" type="button" value="수정하기" >
-						<input  id="realupdate" type="button" value="수정완료">
-						<input  id="reset" type="reset" value="다시 작성">
-						<input  id="delete" type="button" value="삭제" onclick="location.href='delete.do?idx=${board.idx}'">
+						<input class="btn1 btn btn-primary" id="update" type="button" value="수정하기" >
+						<input class="btn btn-primary" id="reset" type="reset" value="다시 작성">
+						<input class="btn btn-primary" id="delete" type="button" value="삭제" onclick="location.href='delete.do?idx=${board.idx}'">
 					</c:if>
-				<!--  		<input class="btn1"  id="move" type="button" value="게시판 이동" onclick="location.href='selectAllList.do?hit=${hit}'">  -->
 					</td>
 				</tr>
 		</table>

@@ -48,7 +48,10 @@ public class BoardServlet extends HttpServlet {
 		case "selectAllList.do":             // 공지사항 전체리스트
 			bs = new ListBoardService();
 			break;
-		case "insert.do":                    // 공지사항&A 등록
+		case "insertForm.do":                  // 공지사항 등록하러 가기 
+			mav = new ModelAndView("views/insert.jsp", false);
+			break;
+		case "insert.do":                    // 공지사항 등록
 			bs = new InsertBoardService();
 			break;
 		case "select.do":                   // 공지사항 상세
@@ -72,7 +75,6 @@ public class BoardServlet extends HttpServlet {
 		case "search.do":               // 검색 서비스
 			bs = new SearchBoardSerivce();
 			break;
-		
 		
 		}
 		

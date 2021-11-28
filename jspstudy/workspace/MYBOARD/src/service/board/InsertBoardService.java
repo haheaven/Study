@@ -28,18 +28,25 @@ public class InsertBoardService implements BoardService {
 		board.setCategory(category);
 		
 		int result = BoardDao.getInstance().insert(board);
-		
-		JSONObject obj = new JSONObject();
-		obj.put("result", result);
-		
-		response.setContentType("application/json");
-		
-		PrintWriter out = response.getWriter();
-		out.println(obj);
-		out.close();
-			
 
+		// 결과 확인하기
+		PrintWriter out = response.getWriter();
+		if( result > 0) {
+			out.println("<script>");
+			out.println("alert('공지사항 등록 성공')");
+			out.println("location.href='selectAllList.do'");
+			out.println("</script>");
+			out.close();
+		} else {
+			out.println("<script>");
+			out.println("alert('공지사항 등록 실패')");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}
+		
 		return null;
+
 	}
 
 }

@@ -49,10 +49,11 @@ public class ListQnAService implements QnAService {
 		request.setAttribute("id", request.getParameter("writer"));
 		request.setAttribute("pw", request.getParameter("pw"));
 		
+		request.setAttribute("page", page);
+		request.setAttribute("cnt", cnt);
+		request.setAttribute("pageEntity", pageEntity);
 		request.setAttribute("list", list);
 		request.setAttribute("startNum", cnt-(page-1)*p.getRecordPerPage() );
-		request.setAttribute("pageEntity", pageEntity);
-		request.setAttribute("cnt", cnt);
 		
 		// 데이터 갖고 이동하기 
 		return new ModelAndView("qna/selectList.jsp", false);

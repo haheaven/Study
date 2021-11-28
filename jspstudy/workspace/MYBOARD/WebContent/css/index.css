@@ -10,7 +10,9 @@
 		text-align:center;
 	}
      login_form{
-     width:500px;}
+     width:500px;
+     margin: 0 auto;
+     }
 	
 	.login_box input{
 		width: 150px;

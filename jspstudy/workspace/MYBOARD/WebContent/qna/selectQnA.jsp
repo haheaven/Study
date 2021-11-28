@@ -56,13 +56,12 @@
 	function fnInsertReply(){	
 		$('#f1').on('submit',function(event){	
 			// 빈값 서브밋금지  -->  writer는 로그인한 사람 적용시키기!!!
-				if( '${user}' == null ){
+				if( $("#comment_writer").val() == '' ){
 					alert('로그인 후 이용가능합니다');
-					event.preventDefault();
+					$("#comment_content").val('');
 					return false;
-				}
-			
-				if( $("#comment_content").val() == ''  || $("#comment_writer").val() == ''){
+					
+				}else if( $("#comment_content").val() == '' ){
 					alert('입력은 필수입니다.');
 					$("#comment_content").focus();
 					event.preventDefault();
@@ -126,6 +125,7 @@ display: inline;
 		width: 120px;
 		height: 30px;
 	}
+\
 
 </style>
 </head>
@@ -201,7 +201,7 @@ display: inline;
 	<div id="comment">
 	
 		<form id="f1" method="post">
-			<input type="text" placeholder="작성자" name="writer" id="comment_writer" style="width:70px;" value="${user.id }">
+			<input readonly type="text" placeholder="작성자" name="writer" id="comment_writer" style="width:70px;" value="${user.id }">
 		    <input type="text" placeholder="댓글을 입력주세요" name="content" id="comment_content" >
 			<input type="hidden" name="idx" value="${qna.idx}" id="comment_idx">
 			

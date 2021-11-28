@@ -11,13 +11,13 @@
  <link rel="stylesheet" type="text/css" href="css/header.css">
  <script>
  	$(document).ready(function(){
+ 		fnSubmit();
  		fnIdCheck();
  		fnPwCheck();	
- 		fnSubmit();
  	});
- 	
+	let idResult = false;
+	let PwResult = false;
  		function fnIdCheck(){
- 			let idResult = false;
  		 $('#id').on('blur',function(){
  			if( $('#id').val() == ''){
  				$('#id_check').text('아이디는 필수입력입니다.');
@@ -29,13 +29,12 @@
  				$('#id_check').removeClass('red_msg');
  				idResult = true;
  			}
-// 			console.log(idResult);
+ 		//	console.log(idResult);
  	 		return idResult;
  		 }) 	
 	}
  			
  		function fnPwCheck(){
- 			let PwResult = false;
  		 $('#pw').on('blur',function(){
  		    if ( $('#pw').val() == ''){
  				$('#pw_check').text('비밀번호는 필수입력입니다.');
@@ -52,11 +51,15 @@
  		}
  		
  		function fnSubmit(){
- 			$('form').on('submit',function(event){
- 				if( fnIdCheck() == false ||  fnPwCheck() == false ){
- 					event.preventDefault();
- 	 				return false;
- 				} return true;
+ 			$('#login_form').on('submit',function(event){
+ 				if( idResult == false ){
+ 					event.preventDefault();  
+ 		            return false;    
+ 				} else if (	PwResult == false ) {
+ 					 event.preventDefault();  
+ 		            return false;    
+ 				}
+ 				return true;
  		   });
  		} 
  </script>
@@ -70,9 +73,8 @@
  	   margin: 0 auto;
  	}
  	#login_form {
- 		width : 700px;
+ 		width : 500px;
  		margin: 0 auto;
- 		padding-left : 100px; 
  	}
  	.login_btn { margin-left: 130px;	}
 	a{ color : black; text-decoration: none; }
