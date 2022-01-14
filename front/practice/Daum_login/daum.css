@@ -1,0 +1,177 @@
+   /* 초기화 */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul, li { list-style-type: none; }
+a {
+    text-decoration: none;
+    color: black;
+}
+body {  background-color: #ececec;  }
+.login_container {
+    margin: 0 auto;
+    max-width: 700px;
+    height: 900px;
+    background-color: white;
+}
+/* header */
+.header{  padding: 60px 0; }
+.logo{
+    display: block;
+    width: 145px;
+    height: 61px;
+    background-image: url(https://t1.daumcdn.net/id/logins/2021/retina/logo_daum.png);
+    background-repeat: no-repeat;
+    background-size: 145px 61px;
+    margin: 0 auto;  
+}
+/* 메인 섹션 */
+.login_wrapper {
+    max-width: 450px;
+    padding-top: 30px;
+    margin: 0 auto;
+}
+.relogin{
+    width: 100%;
+    height: 24px;   
+}
+.relogin a{ font-size: 14px;}
+.relogin_img{
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    background-image: url(https://t1.daumcdn.net/id/logins/2021/retina/ico_login.png);
+    background-position: -70px 0;
+    background-repeat: no-repeat;
+    background-size: 200px 100px;
+    margin-left: 280px;
+    margin-right: 9px;  
+}
+.login_box {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #ececec;
+    margin-top: 10px;
+}
+.login_box input{
+    width: 100%;
+    height: 40px;
+    padding: 12px;
+    font-size: 15px;
+    border: none;
+    outline:none;
+}
+#login_btn{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 46px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    background-color: #4c87ee;
+    border: none;
+    cursor: pointer;
+}
+.msg{
+    display: block;
+    color: red;
+    font-size: 13px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+/* 로그인 상태유지 */
+.login_stay{  
+     display: inline-block;
+     margin: 20px 0 50px 0;
+     height: 40px;  
+     position: relative;
+}
+.login_stay label:first-child span:nth-child(3){
+    display: inline-block;
+    margin-left: 32px;
+    margin-right: 170px;
+    height: 22px;
+}
+#login_retain{  display: none;}
+#ip_secure{ display:  none;}
+.login_retain_img{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url(https://t1.daumcdn.net/id/logins/2021/retina/ico_login.png);
+    background-repeat: no-repeat;
+    background-size: 200px 100px;
+    background-position: -90px 0;
+    margin-right: 5px;
+    position: absolute;
+    top: -6px
+}
+.login_retain_img_ch{
+    background-position: -120px 0;
+}
+.ip_secure_img{
+    display: inline-block;
+    width: 32px;
+    height: 13px;
+    background-image: url(https://t1.daumcdn.net/id/logins/2021/retina/ico_login.png);
+    background-repeat: no-repeat;
+    background-size: 200px 100px;
+    background-position: -30px -40px;
+    margin-left: 8px;
+}
+.ip_secure_img_unch{
+    background-position: -30px -20px;
+}
+
+/* 아이디 비밀번호 찾기 */
+.search_box {
+    display: flex;
+    justify-content: center;
+}
+.search_box .line {
+    display: inline-block;
+    margin-right: 7px;
+    color: #666;
+}
+.id_search, .pw_search { 
+    width: 100px;
+    text-align: center;
+}
+.id_search a{
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+}
+.pw_search a{
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+}
+/* 배너 */
+.banner{
+    margin-top: 70px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 126px;
+}
+.banner img{
+    display: block;
+    width: 100%;
+    height: 126px;
+}
+/* footer */
+.footer{
+    width: 100%;
+    padding-top: 30px;
+    text-align: center;
+    border-top: 1px solid #ececec;
+}
+.footer span, .footer a{
+    color: #767676;
+    font-size: 14px;
+}
